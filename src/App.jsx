@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <h1>Frame Fitness</h1>
-      <Button variant="contained">MUI is dope</Button>
+      <Button variant="contained">MUI button</Button>
     </div>
   );
 }
