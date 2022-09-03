@@ -1,11 +1,10 @@
-import { Box, Stack } from "@mui/material";
+import { Box } from "@mui/material";
 
-const Category = () => {
+const Category = (props) => {
+
   return (
-    <Box
-
-    >
-      <h1></h1>
+    <Box className="category">
+      <h1>{props.name}</h1>
       <img src="https://icon-library.com/images/bicep-icon/bicep-icon-16.jpg"/>
     </Box>
   )

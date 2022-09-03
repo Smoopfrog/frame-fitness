@@ -1,4 +1,39 @@
-html {
-  background-color: white;
-}
+@import url('http://fonts.cdnfonts.com/css/calibre?styles=36566');
 
+body, html {
+  font-family: 'Calibre', sans-serif;
+  background-color: white;
+
+  .categories {
+    margin: 10px;
+  }
+  
+  .category{
+    box-shadow: "5px 5px 50px grey";
+    border-top:  10px solid #E5661F;
+    border-left: 5px solid #E5661F;
+    border-right: 5px solid #E5661F;
+
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 270px;
+    height: 282px;
+    cursor: pointer;
+    gap: 45px;
+
+    img {
+      width: 200px;
+      height: 200px; 
+    }
+  }
+  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
+  
+  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb {
+    background-color: #E5661F;
+    border-radius: 100px;
+  }
+}

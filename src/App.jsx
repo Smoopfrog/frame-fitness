@@ -1,12 +1,12 @@
 import './styles/App.scss';
-import Categories from './components/Categories';
+import CategoriesBar from './components/CategoriesBar';
 
 function App() {
   return (
     <div className="App">
       {/* <navbar></navbar>
       <homepage></homepage> */}
-      <Categories></Categories>
+      <CategoriesBar />
       {/* <exercises></exercises> */}
     </div>
   );
