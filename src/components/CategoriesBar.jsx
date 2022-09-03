@@ -12,6 +12,7 @@ const CategoriesBar = () => {
     const fetchCategories = async () => {
       const bodyParts = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
       setCategories(['all', ...bodyParts]);
+      setCategories(bodyParts);
     };
 
     fetchCategories();
