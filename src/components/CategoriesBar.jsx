@@ -11,7 +11,7 @@ const CategoriesBar = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       const bodyParts = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
-      setCategories(bodyParts);
+      setCategories(['all', ...bodyParts]);
     };
 
     fetchCategories();
