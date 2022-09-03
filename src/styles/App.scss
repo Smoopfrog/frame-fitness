@@ -14,6 +14,38 @@ body, html {
 
   }
 
+  .react-horizontal-scrolling-menu--wrapper  {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 
+  .category{
+    box-shadow: "5px 5px 50px grey";
+    border-top:  10px solid #E5661F;
+    border-left: 5px solid #E5661F;
+    border-right: 5px solid #E5661F;
+
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 200px;
+    height: 220px;
+    cursor: pointer;
+
+    img {
+      width: 180px;
+      height: 180px; 
+      margin: inherit;
+    }
+  }
+  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
+  
+  .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb {
+    background-color: #DB641F;
+    border-radius: 100px;
+  }
 
 }
