@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Stack } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
+import '../styles/App.scss'
 
 const Navbar = () => {
   return (
@@ -23,12 +24,12 @@ const Navbar = () => {
           
           <h1>&nbsp;Frame Fitness</h1>
 
-          <a href="#exercises" style={{textDecoration: 'none', color: 'white', marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
+          <a className='nav-elements' href="#exercises" style={{marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
         </Stack>
 
       </Link>
      
-      <Stack 
+      <Stack
         direction='row'
         gap='20px'
         fontSize='26px'
@@ -36,8 +37,8 @@ const Navbar = () => {
         marginRight='20px'
         marginTop='10px'
       >
-        <a variant="text" href="#login" style={{color: 'white', textDecoration: 'none'}}>Login</a>
-        <a variant="text" href="#signup" style={{color: 'white', textDecoration: 'none'}}>Sign up</a>
+        <a className='nav-elements' variant="text" href="#login" >Login</a>
+        <a className='nav-elements' variant="text" href="#signup" >Sign up</a>
       </Stack>
 
 
