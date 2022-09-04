@@ -12,6 +12,10 @@ body, html {
     margin: auto;
   }
 
+  a:hover {
+    cursor: pointer;
+   }
+
   .nav-elements {
     position: relative;
     color: white;
