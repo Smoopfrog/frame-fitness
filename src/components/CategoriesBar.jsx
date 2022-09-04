@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from 'react';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
-const CategoriesBar = () => {
+const CategoriesBar = ({category, setCategory, setExercises}) => {
   const [categories, setCategories] = useState([]);
   
   useEffect(() => {
@@ -18,12 +18,13 @@ const CategoriesBar = () => {
   }, []);
 
 
-  const bodyPart = categories.map((category, index) => {
+  const bodyParts = categories.map((bodyPart, index) => {
     return (
       <Category 
         key={index}
         id={index}
-        name={category}
+        name={bodyPart}
+        setCategory={setCategory}
       />
     )
   });
@@ -36,7 +37,7 @@ const CategoriesBar = () => {
         alignItems="center"
         spacing={2}
       >
-        {bodyPart}
+        {bodyParts}
       </Stack>
     </ScrollMenu>
   )
