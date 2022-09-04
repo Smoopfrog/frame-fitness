@@ -17,7 +17,6 @@ const Exercises = ({ exercises, setExercises, category }) => {
       } else {
         exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${category}`, exerciseOptions);
       }
-      console.log(exercisesData)
       setExercises(exercisesData);
     };
 
@@ -25,13 +24,11 @@ const Exercises = ({ exercises, setExercises, category }) => {
   }, [category]);
 
   const showExercises = exercises.slice(0, 9)
-  console.log('showExercises', showExercises)
 
   const map1 = showExercises.map((exercise, index) => {
     return (<ExerciseCard key={index} exercise={exercise} />)
   })
 
-  console.log('showExercises2', map1)
   return (
     <Box id="exercises"
       sx={{ mt: { lg: '100px' } }}
