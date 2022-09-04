@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Stack } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
-import '../styles/App.scss'
+import '../styles/App.scss';
+import CustomizedDialogs from './Authentication';
+import SignupForm from './SignupForm';
 
 const Navbar = () => {
   return (
@@ -11,23 +13,34 @@ const Navbar = () => {
       direction='row'
       justifyContent='space-between'
       px='20px'
-      sx={{ gap: {sm: '120px', xs: '40px'}}}
+      height='70px'
+      alignItems='center'
+      overflow='hidden'
+      top='0'
     >
-      <Link to='/' style={{textDecoration: 'none', color: 'white', height: '70px'}}>
-        <Stack 
-          direction='row' 
-          alignItems='center'
-          textAlign='right'>
-          
-          <img src={Dumbbell} alt="logo" 
-          style={{width: '50px', marginLeft: '20px', marginBottom: '10px'}} />
-          
-          <h1>&nbsp;Frame Fitness</h1>
+      <Stack 
+        direction='row'
+        alignItems='center'
+        marginLeft='20px'
+        marginTop='10px'
+      >
+        <Box>
+          <Link to='/'>
+            <img src={Dumbbell} alt="logo" 
+            style={{width: '50px', height: '50px'}} />
+          </Link>
+        </Box>
 
-          <a className='nav-elements' href="#exercises" style={{marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
-        </Stack>
+        <Box sx={{display: {xs: 'none', md: 'block'} }}>
+          <Link to='/' style={{textDecoration: 'none', color: 'white'}}>
+            <h1 >&nbsp;Frame Fitness</h1>
+          </Link>
+        </Box>
 
-      </Link>
+        <a className='nav-elements' href="#exercises" style={{marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
+      </Stack>
+
+
      
       <Stack
         direction='row'
@@ -37,10 +50,19 @@ const Navbar = () => {
         marginRight='20px'
         marginTop='10px'
       >
-        <a className='nav-elements' variant="text" href="#login" >Login</a>
-        <a className='nav-elements' variant="text" href="#signup" >Sign up</a>
-      </Stack>
+        <a className='nav-elements'>
+          <CustomizedDialogs title="Register Here">
+            Login
+          </CustomizedDialogs>
+        </a>
 
+        <a className='nav-elements'>
+          <CustomizedDialogs title="Register Here">
+            <SignupForm />
+          </CustomizedDialogs>
+        </a>
+
+      </Stack>
 
     </Stack>
   )
