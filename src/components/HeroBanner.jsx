@@ -15,7 +15,7 @@ export const HeroBanner = () => {
 
       <Typography className='title'
         color='white' fontWeight='bolder' width='fit-content' p='17px 10px 0 10px' 
-        sx={{fontSize: {lg: '60px', xs: '50px'}, border: '5px solid orange', backgroundColor: 'black'}} fontFamily='Calibre' mt='80px'>
+        sx={{fontSize: {lg: '60px', xs: '50px'}, border: '5px solid orange'}} fontFamily='Calibre' mt='80px' >
         Welcome to Frame Fitness
       </Typography>
 
@@ -26,7 +26,7 @@ export const HeroBanner = () => {
       </Typography>
 
       <Button variant='contained' size='large' href='#exercises' endIcon={<FitnessCenterIcon />}
-        sx={{backgroundColor: '#FF9700', fontWeight: 'bolder', '&:hover': {backgroundColor: '#fff',color: '#FF9700'
+        sx={{backgroundColor: '#FF9700', fontWeight: 'bolder', '&:hover': {backgroundColor: '#fff', color: '#FF9700'
         }}}>Browse Exercises</Button>
     </Box>
   )
