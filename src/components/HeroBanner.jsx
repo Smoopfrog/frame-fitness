@@ -13,7 +13,7 @@ export const HeroBanner = () => {
       }} 
       align='center' >
 
-      <Typography className='title'
+      <Typography
         color='white' fontWeight='bolder' width='fit-content' p='17px 10px 0 10px' 
         sx={{fontSize: {lg: '60px', xs: '50px'}, border: '5px solid orange'}} fontFamily='Calibre' mt='80px' >
         Welcome to Frame Fitness
