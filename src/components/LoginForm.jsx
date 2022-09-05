@@ -11,7 +11,7 @@ const LoginForm = () => {
     }
     const validationSchema = Yup.object().shape({
       email: Yup.string().email("Enter valid email").required("Required"),
-      password: Yup.string().min(8, "Password must be a minimum of 8 characters")
+      password: Yup.string().min(8, "Password must be a minimum of 8 characters").required("Required")
     })
     const onSubmit = (values, props) => {
 

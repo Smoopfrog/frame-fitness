@@ -16,7 +16,7 @@ const SignupForm = () => {
       firstName: Yup.string().min(1, "Too short").required("Required"),
       lastName: Yup.string().min(1, "Too short").required("Required"),
       email: Yup.string().email("Enter a valid email").required("Required"),
-      password: Yup.string().min(8, "Password must be a minimum of 8 characters"),
+      password: Yup.string().min(8, "Password must be a minimum of 8 characters").required("Required"),
       confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Passwords do not match").required('Required')
     })
     const onSubmit = (values, props) => {
