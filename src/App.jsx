@@ -8,7 +8,7 @@ import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <Box width='400px' sx={{ width: {xl: '1', fontFamily: 'Calibre', backgroundColor: 'white' }}} m='auto' >
+    <Box  m='auto' >
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />

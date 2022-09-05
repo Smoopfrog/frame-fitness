@@ -4,6 +4,7 @@ import React, {useState} from 'react'
 import CategoriesBar from '../components/CategoriesBar'
 import Exercises from '../components/Exercises'
 
+
 const Home = () => {
   const [category, setCategory] = useState('all')
   const [exercises, setExercises] = useState([])
