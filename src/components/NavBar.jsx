@@ -5,10 +5,11 @@ import Dumbbell from '../assets/dumbbell.png';
 import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
 import SignupForm from './SignupForm';
+import LoginForm from './LoginForm';
 
 const Navbar = () => {
   return (
-    <Stack 
+    <Stack
       backgroundColor= '#FF9700'
       direction='row'
       justifyContent='space-between'
@@ -40,8 +41,6 @@ const Navbar = () => {
         <a className='nav-elements' href="#exercises" style={{marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
       </Stack>
 
-
-     
       <Stack
         direction='row'
         gap='20px'
@@ -50,14 +49,14 @@ const Navbar = () => {
         marginRight='20px'
         marginTop='10px'
       >
-        <a className='nav-elements'>
-          <CustomizedDialogs title="Register Here">
-            Login
+        <a className='nav-elements' >
+          <CustomizedDialogs title="Sign In Here" auth='Login' >
+            <LoginForm />
           </CustomizedDialogs>
         </a>
 
         <a className='nav-elements'>
-          <CustomizedDialogs title="Register Here">
+          <CustomizedDialogs title="Register Here" auth="Sign up">
             <SignupForm />
           </CustomizedDialogs>
         </a>
