@@ -6,15 +6,17 @@ import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 export const HeroBanner = () => {
   return (
     <Box 
-      sx={{backgroundImage: `url(${Banner})`, backgroundRepeat: 'no-repeat', 
-      backgroundPosition: 'center',
-      width: '100vw',
-      p: '30px 0'
+      sx={{backgroundImage: `url(${Banner})`,
+      position: 'absolute', 
+      backgroundRepeat: 'no-repeat', 
+      backgroundPosition: 'center top',
+      pb: '50px'
       }} 
       align='center' >
 
       <Typography
-        color='white' fontWeight='bolder' width='fit-content' p='17px 10px 0 10px' 
+        color='white' fontWeight='bolder' width='fit-content' p='20px 10px 0'
+        lineHeight='normal'
         sx={{fontSize: {lg: '60px', xs: '50px'}, border: '5px solid orange'}} fontFamily='Calibre' mt='80px' >
         Welcome to Frame Fitness
       </Typography>
