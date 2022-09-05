@@ -33,7 +33,6 @@ body, html {
     transform: scaleX(1);
   }
 
-
   .react-horizontal-scrolling-menu--wrapper  {
     margin-top: 20px;
     margin-left: 50px;
@@ -66,6 +65,7 @@ body, html {
       width: 50%;
     }
   }
+  
   .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
     background-color: #e4e4e4;
     border-radius: 100px;

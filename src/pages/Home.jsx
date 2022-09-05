@@ -3,6 +3,7 @@ import { HeroBanner } from '../components/HeroBanner'
 import React, {useState} from 'react'
 import CategoriesBar from '../components/CategoriesBar'
 import Exercises from '../components/Exercises'
+import SearchBar from '../components/SearchBar'
 
 
 const Home = () => {
@@ -12,6 +13,7 @@ const Home = () => {
   return (
     <Box>
       <HeroBanner />
+      <SearchBar exercises={exercises} setExercises={setExercises}/>
       <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
       <Exercises category={category} exercises={exercises} setExercises={setExercises}/>
     </Box>
