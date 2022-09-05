@@ -3,14 +3,8 @@
 body, html {
   font-family: 'Calibre', sans-serif;
   background-color: white;
-
-  Box {
-    width: 600px;
-    width: {
-      xl: '1200px'
-    }
-    margin: auto;
-  }
+  overflow-x: hidden;
+  width: 100vw;
 
   a:hover {
     cursor: pointer;

@@ -11,14 +11,16 @@ export const HeroBanner = () => {
       position: 'absolute', 
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center top',
-      height: '100%'
+      height: '100%',
+      // justifyContent: 'center',
+      top: '70px'
       }} 
       align='center' >
 
       <Typography 
         color='white' fontWeight='bolder' width='fit-content' p='20px 10px 0'
         lineHeight='normal'
-        sx={{fontSize: {lg: '60px', xs: '50px'}, border: '3px solid #FF9700', borderRadius: '10px', background: 'rgba(0, 0, 0, 0.6)'}} fontFamily='Calibre' mt='80px' >
+        sx={{fontSize: {lg: '60px', xs: '50px'}, border: '3px solid #FF9700', borderRadius: '10px', background:'rgba(0, 0, 0, 0.6)'}} fontFamily='Calibre' mt='80px' >
         Welcome to Frame Fitness
       </Typography>
 
