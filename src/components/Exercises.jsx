@@ -5,8 +5,8 @@ import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
 
 const Exercises = ({ exercises, setExercises, category }) => {
-  // const [currentPage, setCurrentPage] = useState(1);
-  // const [exercisesPerPage] = useState(6);
+  const [page, setPage] = useState(1);
+  const [exercisesPerPage] = useState(8);
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -23,9 +23,19 @@ const Exercises = ({ exercises, setExercises, category }) => {
     fetchExercisesData();
   }, [category]);
 
-  const showExercises = exercises.slice(0, 9)
+  const indexOfLastExercise = page * exercisesPerPage;
+  const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
+  const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise);
 
-  const map1 = showExercises.map((exercise, index) => {
+  const paginate = (event, value) => {
+    setPage(value);
+
+    // window.scrollTo({ top: 1800, behavior: 'smooth' });
+  };
+
+  // const showExercises = exercises.slice(0, 9)
+
+  const exerciseCards = currentExercises.map((exercise, index) => {
     return (<ExerciseCard key={index} exercise={exercise} />)
   })
 
@@ -37,12 +47,26 @@ const Exercises = ({ exercises, setExercises, category }) => {
     >
       <Typography
         variant="h3"
-        mb="40"
+        mb="100"
+        textAlign='-webkit-center'
       >
         Exercises
       </Typography>
       <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
-        {map1}
+        {exerciseCards}
+      </Stack>
+      <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
+        {exercises.length > 9 && (
+          <Pagination
+            color="standard"
+            shape="rounded"
+            defaultPage={1}
+            count={Math.ceil(exercises.length / exercisesPerPage)}
+            page={page}
+            onChange={paginate}
+            size="large"
+          />
+        )}
       </Stack>
     </Box>
   )
