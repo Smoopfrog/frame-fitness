@@ -8,7 +8,7 @@ export const HeroBanner = () => {
   return (
     <Box className='image-background'
       sx={{backgroundImage: `url(${Banner})`,
-      position: 'absolute', 
+      // position: 'absolute', 
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center top',
       height: '100%'

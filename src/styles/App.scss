@@ -39,11 +39,17 @@ body, html {
     transform: scaleX(1);
   }
 
+
   .react-horizontal-scrolling-menu--wrapper  {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
+  .categories {
+    margin: 10px;
+  }
+  
   .category{
     box-shadow: "5px 5px 50px grey";
     border-top:  10px solid #E5661F;
@@ -60,7 +66,12 @@ body, html {
     img {
       width: 180px;
       height: 180px; 
-      margin: inherit;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      width: 50%;
     }
   }
   .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
@@ -69,9 +80,7 @@ body, html {
   }
   
   .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb {
-    background-color: #DB641F;
+    background-color: #E5661F;
     border-radius: 100px;
   }
-
 }
-
