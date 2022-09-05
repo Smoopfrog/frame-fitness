@@ -30,10 +30,8 @@ const Exercises = ({ exercises, setExercises, category }) => {
   const paginate = (event, value) => {
     setPage(value);
 
-    // window.scrollTo({ top: 1800, behavior: 'smooth' });
   };
 
-  // const showExercises = exercises.slice(0, 9)
 
   const exerciseCards = currentExercises.map((exercise, index) => {
     return (<ExerciseCard key={index} exercise={exercise} />)
@@ -57,8 +55,6 @@ const Exercises = ({ exercises, setExercises, category }) => {
       <Stack sx={{ mt: { lg: '114px', xs: '70px' } }} alignItems="center">
         {exercises.length > 9 && (
           <Pagination
-            color="standard"
-            shape="rounded"
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={page}
