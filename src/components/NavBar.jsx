@@ -16,8 +16,11 @@ const Navbar = () => {
       px='20px'
       height='70px'
       alignItems='center'
-      overflow='hidden'
-      top='0'
+      position= 'fixed'
+      top= '0'
+      zIndex= '99'
+      align='center'
+      width='100%'
     >
       <Stack 
         direction='row'
@@ -46,7 +49,7 @@ const Navbar = () => {
         gap='20px'
         fontSize='26px'
         alignItems='center'
-        marginRight='20px'
+        marginRight='40px'
         marginTop='10px'
       >
         <a className='nav-elements' >
