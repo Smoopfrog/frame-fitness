@@ -5,7 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
 const LoginForm = () => {
-    const passwordRegExp=/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
     const initialValues = {
         email: '',
         password: '',
@@ -13,8 +12,6 @@ const LoginForm = () => {
     const validationSchema = Yup.object().shape({
       email: Yup.string().email("Enter valid email").required("Required"),
       password: Yup.string().min(8, "Password must be a minimum of 8 characters")
-      .matches(passwordRegExp,"Password requirements: Atleast 1 uppercase, 1 lower case, 1 number, and special symbol").required('Required'),
-      confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Passwords do not match").required('Required')
     })
     const onSubmit = (values, props) => {
 
