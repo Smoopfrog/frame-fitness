@@ -2,22 +2,23 @@ import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import Banner from '../assets/banner.jpg';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import '../styles/App.scss';
 
 export const HeroBanner = () => {
   return (
-    <Box 
+    <Box className='image-background'
       sx={{backgroundImage: `url(${Banner})`,
       position: 'absolute', 
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center top',
-      pb: '50px'
+      height: '100%'
       }} 
       align='center' >
 
-      <Typography
+      <Typography 
         color='white' fontWeight='bolder' width='fit-content' p='20px 10px 0'
         lineHeight='normal'
-        sx={{fontSize: {lg: '60px', xs: '50px'}, border: '5px solid orange'}} fontFamily='Calibre' mt='80px' >
+        sx={{fontSize: {lg: '60px', xs: '50px'}, border: '3px solid #FF9700', borderRadius: '10px', background: 'rgba(0, 0, 0, 0.6)'}} fontFamily='Calibre' mt='80px' >
         Welcome to Frame Fitness
       </Typography>
 
