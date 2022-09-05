@@ -1,8 +1,8 @@
-import { Box } from '@mui/system'
-import React from 'react'
+import { Box } from '@mui/system';
+import React from 'react';
 
-import CategoriesBar from '../components/CategoriesBar'
-import { HeroBanner } from '../components/HeroBanner'
+import CategoriesBar from '../components/CategoriesBar';
+import { HeroBanner } from '../components/HeroBanner';
 
 const Home = () => {
   return (
