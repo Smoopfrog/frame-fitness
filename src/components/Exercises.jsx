@@ -41,13 +41,12 @@ const Exercises = ({ exercises, setExercises, category }) => {
 
   return (
     <Box id="exercises"
-      sx={{ mt: { lg: '100px' } }}
-      mt="50px"
+      mt="20px"
       p="20px"
     >
       <Typography
         variant="h3"
-        mb="100"
+        mb="20px"
         textAlign='-webkit-center'
       >
         Exercises
