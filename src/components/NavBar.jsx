@@ -52,17 +52,17 @@ const Navbar = () => {
         marginRight='40px'
         marginTop='10px'
       >
-        <a className='nav-elements' >
+        <Link className='nav-elements' to={{pathname: '/auth/login', state: { modal: true}}}>
           <CustomizedDialogs title="Sign In Here" auth='Login' >
             <LoginForm />
           </CustomizedDialogs>
-        </a>
+        </Link>
 
-        <a className='nav-elements'>
+        <Link className='nav-elements' to={{pathname: '/auth/signup', state: { modal: true}}}>
           <CustomizedDialogs title="Register Here" auth="Sign up">
             <SignupForm />
           </CustomizedDialogs>
-        </a>
+        </Link>
 
       </Stack>
 
