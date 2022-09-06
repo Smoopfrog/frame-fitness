@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { Grid, Paper, Button, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import { AccountContext } from './AccountContext';
+import { useNavigate } from "react-router";
 
 const SignupForm = () => {
+  const [error, setError] = useState(null);
+  const  setUser = useContext(AccountContext);
+  const navigate = useNavigate();
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -20,9 +25,34 @@ const SignupForm = () => {
       confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Passwords do not match").required('Required')
     })
     const onSubmit = (values, props) => {
-
+        const vals = { ...values };
         alert(JSON.stringify(values), null, 2)
         props.resetForm()
+        fetch('/auth/signup', {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(vals),
+        }).catch(err => {
+          return;
+        })
+        .then(res => {
+          if (!res || !res.ok || res.status >= 400) {
+            return;
+          }
+          return res.json();
+        })
+        .then(data => {
+          if (!data) return;
+          setUser({...data});
+          if(data.status) {
+            setError(data.status)
+          } else if (data.loggedIn) {
+            navigate('/')
+          }
+        })
     }
     return (
     <Grid >
