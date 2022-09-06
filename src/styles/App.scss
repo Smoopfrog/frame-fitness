@@ -91,6 +91,21 @@ html {
     text-align: -webkit-center;
   }
 
+  .exercise-card {
+    border: 4px solid #E5661F;
+    border-radius: 20px;
+    background-color: #E5661F;
+  }
+
+  .exercise-card-name {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 11px;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+  }
+
   .exercise-card-btn {
     margin-left: 21px;
     color: black;
