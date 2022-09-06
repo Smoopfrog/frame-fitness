@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { TextField, Box, Button } from "@mui/material";
+import React, { useState } from "react";
+import { TextField, Box, Button, Typography } from "@mui/material";
 import { fetchData, exerciseOptions } from "../utils/fetchData";
 
-const SearchBar = ({ exercises, setExercises }) => {
+const SearchBar = ({ setExercises }) => {
   const [search, setSearch] = useState('');
 
   const searchFunction = async () => {
@@ -28,8 +28,13 @@ const SearchBar = ({ exercises, setExercises }) => {
   };
 
   return (
-    <Box>
+    <Box className="search-bar">
+      <Typography>
+        Find some new exercises
+      </Typography>
       <TextField
+        height="76px"
+        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '1170px', xs: '350px' }, backgroundColor: '#fff', borderRadius: '40px' }}
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
         placeholder="Search Exercises"
@@ -37,7 +42,7 @@ const SearchBar = ({ exercises, setExercises }) => {
         onKeyDown={handleKeyDown}
       >
       </TextField>
-      <Button
+      <Button className="search-btn"
         onClick={searchFunction}
       >
         Search

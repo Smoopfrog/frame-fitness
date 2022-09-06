@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <Box>
       <HeroBanner />
-      <SearchBar exercises={exercises} setExercises={setExercises}/>
+      <SearchBar setExercises={setExercises}/>
       <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
       <Exercises category={category} exercises={exercises} setExercises={setExercises}/>
     </Box>

@@ -48,7 +48,7 @@ const Exercises = ({ exercises, setExercises, category }) => {
         textAlign='-webkit-center'
         textTransform="capitalize"
       >
-        {category} Exercises
+        Exercises
       </Typography>
       <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
         {exerciseCards}
