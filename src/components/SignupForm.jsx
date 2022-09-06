@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 
 const SignupForm = () => {
   const [error, setError] = useState(null);
-  const  setUser = useContext(AccountContext);
+  const setUser = useContext(AccountContext);
   const navigate = useNavigate();
     const initialValues = {
         firstName: '',
