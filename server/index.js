@@ -3,7 +3,7 @@ const helmet = require('helmet')
 const authRouter = require('./routers/authRouter');
 const app = express();
 const session = require("express-session");
-require('../.env').config();
+require('dotenv').config();
 const cors = require("cors");
 
 app.use(helmet());
