@@ -40,20 +40,8 @@ html {
     margin-left: 50px;
     margin-right: 50px;
   }
-
-  .categories {
-    margin: 10px;
-  }
-
-  .category {
-    box-shadow: "5px 5px 50px grey";
-    border-top: 10px solid #E5661F;
-    border-left: 5px solid #E5661F;
-    border-right: 5px solid #E5661F;
-    background: #fff;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    width: 200px;
+  
+  .category-btn {
     cursor: pointer;
 
     img {

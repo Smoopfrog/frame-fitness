@@ -29,9 +29,7 @@ const Exercises = ({ exercises, setExercises, category }) => {
 
   const paginate = (event, value) => {
     setPage(value);
-
   };
-
 
   const exerciseCards = currentExercises.map((exercise, index) => {
     return (<ExerciseCard key={index} exercise={exercise} />)
