@@ -40,14 +40,6 @@ const Exercises = ({ exercises, setExercises, category }) => {
       mt="20px"
       p="20px"
     >
-      <Typography
-        variant="h3"
-        mb="20px"
-        textAlign='-webkit-center'
-        textTransform="capitalize"
-      >
-        Exercises
-      </Typography>
       <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
         {exerciseCards}
       </Stack>
