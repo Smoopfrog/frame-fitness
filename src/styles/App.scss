@@ -1,6 +1,7 @@
 @import url('http://fonts.cdnfonts.com/css/calibre?styles=36566');
 
-body, html {
+body,
+html {
   font-family: 'Calibre', sans-serif;
   background-color: white;
   overflow-x: hidden;
@@ -8,13 +9,14 @@ body, html {
 
   a:hover {
     cursor: pointer;
-   }
+  }
 
   .nav-elements {
     position: relative;
     color: white;
     text-decoration: none;
   }
+
   .nav-elements::before {
     content: "";
     position: absolute;
@@ -28,44 +30,86 @@ body, html {
     transform-origin: top left;
     transition: transform 0.3s ease;
   }
-  
+
   .nav-elements:hover::before {
     transform: scaleX(1);
   }
 
-  .react-horizontal-scrolling-menu--wrapper  {
-    margin-left: 10px;
-    margin-right: 10px;
+  .react-horizontal-scrolling-menu--wrapper {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
   }
 
-  .category{
-    box-shadow: "5px 5px 50px grey";
-    border-top:  10px solid #E5661F;
-    border-left: 5px solid #E5661F;
-    border-right: 5px solid #E5661F;
-
-    background: #fff;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    width: 200px;
-    height: 220px;
+  .category-btn {
     cursor: pointer;
 
     img {
       width: 180px;
-      height: 180px; 
-      margin: inherit;
+      height: 180px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      width: 50%;
     }
   }
+
   .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
     background-color: #e4e4e4;
     border-radius: 100px;
   }
-  
+
   .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb {
-    background-color: #DB641F;
+    background-color: #E5661F;
     border-radius: 100px;
   }
 
-}
+  .search-btn {
+    background-color: red;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-left: 5px;
+    color: white;
+    font-weight: bold;
+  }
 
+  .search-bar {
+    text-align: -webkit-center;
+  }
+
+  .exercise-card {
+    border: 4px solid #E5661F;
+    border-radius: 20px;
+    background-color: #E5661F;
+  }
+
+  .exercise-card-name {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-top: 11px;
+    padding-bottom: 10px;
+    text-transform: capitalize;
+  }
+
+  .exercise-card-btn {
+    margin-left: 21px;
+    color: black;
+    background-color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  .exercise-card-add-btn {
+    background-color: green;
+    margin-left: auto;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 20px;
+  }
+}

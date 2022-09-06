@@ -1,3 +1,63 @@
-html {
-  background-color: beige;
+@import url("http://fonts.cdnfonts.com/css/calibre?styles=36566");
+body, html {
+  font-family: "Calibre", sans-serif;
+  background-color: white;
+}
+body Box, html Box {
+  width: 600px;
+  width-xl: "1200px";
+  margin: auto;
+}
+body a:hover, html a:hover {
+  cursor: pointer;
+}
+body .nav-elements, html .nav-elements {
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+body .nav-elements::before, html .nav-elements::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+}
+body .nav-elements:hover::before, html .nav-elements:hover::before {
+  transform: scaleX(1);
+}
+body .react-horizontal-scrolling-menu--wrapper, html .react-horizontal-scrolling-menu--wrapper {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+body .category, html .category {
+  box-shadow: "5px 5px 50px grey";
+  border-top: 10px solid #E5661F;
+  border-left: 5px solid #E5661F;
+  border-right: 5px solid #E5661F;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 200px;
+  height: 220px;
+  cursor: pointer;
+}
+body .category img, html .category img {
+  width: 180px;
+  height: 180px;
+  margin: inherit;
+}
+body .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar, html .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+body .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb, html .react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar-thumb {
+  background-color: #DB641F;
+  border-radius: 100px;
 }
