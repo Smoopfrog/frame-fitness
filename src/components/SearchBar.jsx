@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField, Box, Button, Typography } from "@mui/material";
 import { fetchData, exerciseOptions } from "../utils/fetchData";
 import '../styles/App.scss';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
 const SearchBar = ({ setExercises }) => {
   const [search, setSearch] = useState('');
@@ -44,12 +45,12 @@ const SearchBar = ({ setExercises }) => {
       >
       </TextField>
       <Button className="search-btn"
+        endIcon={<FitnessCenterIcon />}
         onClick={searchFunction}
-        sx={{'&:hover': {backgroundColor: '#fff', color: '#FF9700', border: '2px solid #FF9700', padding: '14px 6px'
+        sx={{'&:hover': {backgroundColor: '#fff', color: '#FF9700', border: '2px solid #FF9700', padding: '14px 8px'
         }}}
       >
-        Search
-      </Button>
+        Search</Button>
     </Box>
   )
 };
