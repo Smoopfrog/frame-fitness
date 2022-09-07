@@ -1,7 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import Banner from '../assets/banner.jpg';
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 import '../styles/App.scss';
 
 export const HeroBanner = () => {
@@ -31,10 +30,6 @@ export const HeroBanner = () => {
         width='100vw' fontFamily='Calibre' mt='300px' backgroundColor='white' pt='10px' mb={5}>
         Lift, Breathe, Build Your Frame
       </Typography>
-
-      <Button variant='contained' size='large' href='#exercises' endIcon={<FitnessCenterIcon />}
-        sx={{backgroundColor: '#FF9700', fontWeight: 'bolder', '&:hover': {backgroundColor: '#fff', color: '#FF9700'
-        }, mt: { xs: '15px', md: '0'}}}>Browse Exercises</Button>
     </Box>
   )
 }
