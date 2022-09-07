@@ -4,7 +4,10 @@ import Navbar from './components/NavBar';
 import Home from './pages/Home';
 import { Box } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
+import io from "socket.io-client";
 
+const socket = io.connect("http://localhost:3001")
+console.log("helloo")
 
 function App() {
   return (

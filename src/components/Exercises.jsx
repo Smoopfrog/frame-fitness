@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Pagination, Stack, Typography } from "@mui/material";
+import { Pagination, Stack } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
