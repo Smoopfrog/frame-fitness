@@ -58,8 +58,8 @@ const Navbar = () => {
           </CustomizedDialogs>
         </a>
 
-        <a className='nav-elements'>
-          <CustomizedDialogs title="Register Here" auth="Sign up">
+        <a className='nav-elements' >
+          <CustomizedDialogs title="Register Here" auth="Sign up" >
             <SignupForm />
           </CustomizedDialogs>
         </a>
