@@ -4,7 +4,6 @@ import { TextField } from '@mui/material'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 import axios from 'axios';
-const axious = require('axios')
 
 const SignupForm = () => {
 
