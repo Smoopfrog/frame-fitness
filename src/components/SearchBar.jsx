@@ -36,7 +36,7 @@ const SearchBar = ({ setExercises }) => {
       </Typography>
       <TextField
         
-        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px', height: {md: '1.5em', xs: '1em'}, fontSize: {md: '20px', xs: '16px'} }, width: { lg: '500px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px', height: {md: '1.5em', xs: '1em'}, fontSize: {md: '20px', xs: '16px'} }, width: { lg: '500px', md: '400px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
         placeholder="Search Exercises"
