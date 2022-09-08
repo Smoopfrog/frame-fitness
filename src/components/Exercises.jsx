@@ -37,7 +37,7 @@ const Exercises = ({ exercises, setExercises, category }) => {
 
   return (
     <Box id="exercises"
-      mt="20px"
+      mt="80px"
       p="20px"
     >
       <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
