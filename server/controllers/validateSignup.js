@@ -1,4 +1,4 @@
-import SignupForm from '../../src/components/SignupForm';
+// import SignupForm from '../../src/components/SignupForm';
 
 const validateSignup = (req, res) => {
   SignupForm
