@@ -1,5 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/calibre?styles=36566');
 
+
 body,
 html {
   font-family: 'Calibre', sans-serif;
@@ -49,8 +50,11 @@ html {
     margin: 20px;
     transform: scale(1, 1);
     transition: 0.1s all ease-in-out;
-    background-size: 340px 200px;
     background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+
     
     img {
       width: 180px;
