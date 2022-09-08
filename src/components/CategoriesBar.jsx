@@ -5,7 +5,17 @@ import { exerciseOptions, fetchData } from '../utils/fetchData';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import '../styles/App.scss';
-import { borderBottom } from '@mui/system';
+import Chest from '../assets/chest.gif';
+import All from '../assets/workout.gif';
+import Cardio from '../assets/cardio2.gif';
+import Back from '../assets/back2.gif';
+import Shoulders from '../assets/shoulders2.gif';
+import LowerArms from '../assets/lowerarms.gif';
+import UpperArms from '../assets/upperarms.gif';
+import UpperLegs from '../assets/upperlegs.gif';
+import LowerLegs from '../assets/lowerlegs.gif';
+import Neck from '../assets/neck.gif';
+import Waist from '../assets/waist2.gif';
 
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
@@ -27,7 +37,7 @@ const LeftArrow = () => {
   };
 
 const CategoriesBar = ({ category, setCategory, setExercises }) => {
-  const categories = ['all', 'back', 'cardio', 'chest', 'lower arms', 'lower legs', 'neck', 'shoulders', 'upper arms', 'upper legs', 'waist']
+  const categories = ['all', 'cardio', 'chest', 'back', 'upper arms', 'shoulders', 'upper legs', 'lower arms','waist', 'lower legs', 'neck']
   // const [categories, setCategories] = useState(bodyPartsArr);
   const [selected, setSelected] = useState('all')
 
@@ -52,7 +62,21 @@ const CategoriesBar = ({ category, setCategory, setExercises }) => {
         id={index}
         name={bodyPart}
         value={bodyPart}
-        sx={{background:'rgba(0, 0, 0, 0.4)', '&:hover': { background:'rgba(0, 0, 0, 0.4)'}}}
+        sx={{
+          background: 
+            bodyPart === 'chest' ? `url(${Chest})` : bodyPart === 'all' ? `url(${All})` : 
+            bodyPart === 'cardio' ? `url(${Cardio})` :
+            bodyPart === 'back' ? `url(${Back})` :
+            bodyPart === 'lower arms' ? `url(${LowerArms})` :
+            bodyPart === 'lower legs' ? `url(${LowerLegs})` :
+            bodyPart === 'neck' ? `url(${Neck})` :
+            bodyPart === 'shoulders' ? `url(${Shoulders})` :
+            bodyPart === 'upper arms' ? `url(${UpperArms})` :
+            bodyPart === 'upper legs' ? `url(${UpperLegs})` :
+            bodyPart === 'waist' ? `url(${Waist})` 
+            : ''
+        }}
+
         onClick={() => setCategory(bodyPart)}
       >
         <Typography fontSize="24px" fontWeight="bold" color="#FFF" textTransform="uppercase" align="center">{bodyPart}</Typography>
