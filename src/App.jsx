@@ -4,6 +4,7 @@ import Navbar from './components/NavBar';
 import Home from './pages/Home';
 import { Box } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
       </Routes>
+      <Footer />
     </Box>
   )
 }
