@@ -31,12 +31,12 @@ const SearchBar = ({ setExercises }) => {
 
   return (
     <Box className="search-bar" >
-      <Typography sx={{color: '#FF9700', fontFamily: 'Calibre', fontSize: '40px', lineHeight: 'normal', mb: '10px', color: '#00A5B8'}}>
+      <Typography sx={{color: '#FF9700', fontFamily: 'Calibre', fontSize: {lg: '45px', md: '35px', xs: '25px'}, lineHeight: 'normal', mb: '25px', color: '#00A5B8'}}>
         Explore a Catalogue of 1300+ Exercises
       </Typography>
       <TextField
-        height="76px"
-        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '500px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+        
+        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px', height: {md: '1.5em', xs: '1em'}, fontSize: {md: '20px', xs: '16px'} }, width: { lg: '500px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
         placeholder="Search Exercises"
@@ -47,7 +47,7 @@ const SearchBar = ({ setExercises }) => {
       <Button className="search-btn"
         endIcon={<FitnessCenterIcon />}
         onClick={searchFunction}
-        sx={{'&:hover': {backgroundColor: '#fff', color: '#FF9700', border: '2px solid #FF9700', padding: '14px 8px'
+        sx={{height: {md: '63px', xs: '49px'},'&:hover': {backgroundColor: '#fff', color: '#FF9700', border: '2px solid #FF9700', padding: '14px 8px'
         }}}
       >
         Search</Button>
