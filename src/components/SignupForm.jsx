@@ -3,6 +3,8 @@ import { Grid, Paper, Button, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
+import axios from 'axios';
+const axious = require('axios')
 
 const SignupForm = () => {
 
@@ -17,11 +19,23 @@ const SignupForm = () => {
       confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Passwords do not match").required('Required')
     })
     const onSubmit = (values, props) => {
-        
-        console.log(JSON.stringify(values), null, 2)
-        props.resetForm()
-        
+
+        const userData = {
+          username: values.username,
+          password: values.password
+        }
+
+        axios.post('/users', userData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });    
+
+        props.resetForm();
     }
+    
     return (
     <Grid >
       <Paper elevation={0} style={{ padding: '0 10px 5px', width: '250px' }}>
