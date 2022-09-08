@@ -30,7 +30,7 @@ const SearchBar = ({ setExercises }) => {
   };
 
   return (
-    <Box className="search-bar" >
+    <Box className="search-bar" id="exercises" >
       <Typography sx={{color: '#FF9700', fontFamily: 'Calibre', fontSize: {lg: '45px', md: '35px', xs: '25px'}, lineHeight: 'normal', mb: '25px', color: '#00A5B8'}}>
         Explore a Catalogue of 1300+ Exercises
       </Typography>
