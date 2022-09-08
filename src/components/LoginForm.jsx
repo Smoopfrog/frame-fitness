@@ -6,31 +6,32 @@ import * as Yup from 'yup'
 
 const LoginForm = () => {
     const initialValues = {
-        email: '',
+        username: '',
         password: '',
     }
     const validationSchema = Yup.object().shape({
-      email: Yup.string().email("Enter valid email").required("Required"),
-      password: Yup.string().min(8, "Password must be a minimum of 8 characters").required("Required")
+      username: Yup.string().min(6).required("Required"),
+      password: Yup.string().min(8).required("Required")
     })
     const onSubmit = (values, props) => {
-
-        alert(JSON.stringify(values), null, 2)
+        
+        console.log(JSON.stringify(values))
         props.resetForm()
+        
     }
     return (
     <Grid >
       <Paper elevation={0} style={{ padding: '0 10px 5px', width: '250px' }}>
         <Grid align='center' mb='10px'>
-          <Typography variant='caption'>Enter your email and password</Typography>
+          <Typography variant='caption'>Enter your username and password</Typography>
         </Grid>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {(props) => (
           <Form noValidate>
             <Grid mb='10px'>
-              <Field as={TextField} name='email' label='Email' fullWidth
-                  error={props.errors.email && props.touched.email}
-                  helperText={<ErrorMessage name='email' />} required />
+              <Field as={TextField} name='username' label='Username' fullWidth
+                  error={props.errors.username && props.touched.username}
+                  helperText={<ErrorMessage name='username' />} required />
             </Grid>
             <Grid mb='10px'>
               <Field as={TextField} name='password' label='Password' type='password' fullWidth

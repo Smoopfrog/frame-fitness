@@ -8,6 +8,7 @@ export const HeroBanner = () => {
   return (
     <Box className='image-background'
       sx={{backgroundImage: `url(${Banner})`,
+      // position: 'absolute', 
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center top',
       height: '724px',
@@ -21,7 +22,7 @@ export const HeroBanner = () => {
       <Typography 
         color='white' fontWeight='bolder' width='fit-content' p='20px 10px 0'
         lineHeight='normal'
-        sx={{fontSize: {md: '60px', xs: '40px'}, border: '3px solid #FF9700', borderRadius: '10px', background:'rgba(0, 0, 0, 0.6)'}} fontFamily='Calibre' mt='100px' >
+        sx={{fontSize: {md: '60px', xs: '40px'}, border: '4px solid #00A5B8', borderRadius: '10px', background:'rgba(0, 0, 0, 0.6)'}} fontFamily='Calibre' mt='100px' >
         Welcome to Frame Fitness
       </Typography>
 

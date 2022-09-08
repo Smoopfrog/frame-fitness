@@ -2,28 +2,38 @@ import React from 'react'
 import { Grid, Paper, Button, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
+import * as Yup from 'yup';
+import axios from 'axios';
+const axious = require('axios')
 
 const SignupForm = () => {
+
     const initialValues = {
-        firstName: '',
-        lastName: '',
-        email: '',
+        username: '',
         password: '',
         confirmPassword:''
     }
     const validationSchema = Yup.object().shape({
-      firstName: Yup.string().min(1, "Too short").required("Required"),
-      lastName: Yup.string().min(1, "Too short").required("Required"),
-      email: Yup.string().email("Enter a valid email").required("Required"),
-      password: Yup.string().min(8, "Password must be a minimum of 8 characters").required("Required"),
+      username: Yup.string().min(6, "Too short").required("Required"),
+      password: Yup.string().min(6, "Password must be a minimum of 6 characters").required("Required"),
       confirmPassword:Yup.string().oneOf([Yup.ref('password')],"Passwords do not match").required('Required')
     })
     const onSubmit = (values, props) => {
 
-        alert(JSON.stringify(values), null, 2)
-        props.resetForm()
+        const userData = {
+          username: values.username,
+          password: values.password
+        }
+
+        axios.post('/users', userData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });    
     }
+    
     return (
     <Grid >
       <Paper elevation={0} style={{ padding: '0 10px 5px', width: '250px' }}>
@@ -34,19 +44,9 @@ const SignupForm = () => {
             {(props) => (
           <Form noValidate>
             <Grid mb='10px'>
-              <Field as={TextField} name='firstName' label='First Name' fullWidth
-                  error={props.errors.name && props.touched.name}
-                  helperText={<ErrorMessage name='firstName' />} required />
-            </Grid>
-            <Grid mb='10px'>
-              <Field as={TextField} name='lastName' label='Last Name' fullWidth
-                  error={props.errors.name && props.touched.name}
-                  helperText={<ErrorMessage name='lastName' />} required />
-            </Grid>
-            <Grid mb='10px'>
-              <Field as={TextField} name='email' label='Email' fullWidth
-                  error={props.errors.email && props.touched.email}
-                  helperText={<ErrorMessage name='email' />} required />
+              <Field as={TextField} name='username' label='Username' fullWidth
+                  error={props.errors.username && props.touched.username}
+                  helperText={<ErrorMessage name='username' />} required />
             </Grid>
             <Grid mb='10px'>
               <Field as={TextField} name='password' label='Password' type='password' fullWidth
