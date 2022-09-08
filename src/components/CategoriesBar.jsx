@@ -7,15 +7,15 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import '../styles/App.scss';
 import Chest from '../assets/chest.gif';
 import All from '../assets/workout.gif';
-import Cardio from '../assets/cardio2.gif';
-import Back from '../assets/back2.gif';
-import Shoulders from '../assets/shoulders2.gif';
+import Cardio from '../assets/cardio.gif';
+import Back from '../assets/back.gif';
+import Shoulders from '../assets/shoulders.gif';
 import LowerArms from '../assets/lowerarms.gif';
 import UpperArms from '../assets/upperarms.gif';
 import UpperLegs from '../assets/upperlegs.gif';
 import LowerLegs from '../assets/lowerlegs.gif';
 import Neck from '../assets/neck.gif';
-import Waist from '../assets/waist2.gif';
+import Waist from '../assets/waist.gif';
 
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
