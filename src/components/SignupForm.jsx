@@ -32,6 +32,8 @@ const SignupForm = () => {
         .catch(function (error) {
           console.log(error);
         });    
+
+        props.resetform();
     }
     
     return (
