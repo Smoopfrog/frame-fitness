@@ -33,7 +33,7 @@ const SignupForm = () => {
           console.log(error);
         });    
 
-        props.resetform();
+        props.resetForm();
     }
     
     return (
