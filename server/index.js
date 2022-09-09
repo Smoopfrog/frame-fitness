@@ -5,39 +5,18 @@ const port = 8000;
 const db = require('./db/db.js');
 const userRoutes = require('./routers/authRouter.js')
 require('dotenv').config();
-// const router = express.Router();
-// const helmet = require('helmet')
-// const authRouter = require('./routers/authRouter');
-// const session = require("express-session");
+
+db.connect();
 
 app.use(
   cors()
 );
 
-app.use('/', userRoutes())
-<<<<<<< HEAD
-// app.use('/', userRoutes())
-=======
->>>>>>> fbd204eb52e0d266471e5baa3fdc1b129c5dbf33
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use('/', userRoutes(db))
 
 app.listen(port, () => { console.log(`Example app listening on port ${port}`) })
 
-  // app.use(helmet());
-// app.post()
-// app.use(express.json());
-// app.use(session({
-//   secret: process.env.COOKIE_SECRET, 
-//   credentials: true,
-//   name: 'sessionId',
-//   resave: false,
-//   saveUninitialized: false,
-//   cookie: {
-//     secure: process.env.ENVIRONMENT === "production" ? "true" : "auto",
-//     httpOnly: true,
-//     sameSite: process.env.ENVIRONMENT === 'prduction' ? "none" : "lax"
-//   }
-<<<<<<< HEAD
-// }))
-=======
-// }))
->>>>>>> fbd204eb52e0d266471e5baa3fdc1b129c5dbf33

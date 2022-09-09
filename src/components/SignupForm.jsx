@@ -3,9 +3,9 @@ import { Grid, Paper, Button, Typography } from '@mui/material'
 import { TextField } from '@mui/material'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
-const axios = require('axios').default;
+const axios = require('axios')
 
-const SignupForm = () => {
+const SignupForm = ({ setUser }) => {
 
   const initialValues = {
     username: '',
@@ -13,42 +13,29 @@ const SignupForm = () => {
     confirmPassword: ''
   }
   const validationSchema = Yup.object().shape({
-    username: Yup.string().min(6, "Too short").required("Required"),
     password: Yup.string().min(6, "Password must be a minimum of 6 characters").required("Required"),
     confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Passwords do not match").required('Required')
   })
 
   const onSubmit = (values, props) => {
-
     const userData = {
       username: values.username,
-      passhash: values.password
+      password: values.password
     }
 
-    const validationSchema = Yup.object().shape({
-      username: Yup.string().min(6, "Too short").required("Required"),
-      password: Yup.string().min(6, "Password must be a minimum of 6 characters").required("Required"),
-      confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Passwords do not match").required('Required')
-    })
-    const onSubmit = (values, props) => {
+    axios.post('/users', userData)
+      .then(function (response) {
+        setUser(response.data);
+        alert('Sign up successful!')
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert('Username taken')
+      });
 
-      const userData = {
-        username: values.username,
-        password: values.password
-      }
-
-      axios.post('/users', userData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
-
-      props.resetForm();
-    }
+    props.resetForm();
   }
-  
+
   return (
     <Grid >
       <Paper elevation={0} style={{ padding: '0 10px 5px', width: '250px' }}>

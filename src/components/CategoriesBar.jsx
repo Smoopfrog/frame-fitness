@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Typography, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import React, { useState, useContext } from 'react';
+import { Typography, ToggleButton } from '@mui/material';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import { exerciseOptions, fetchData } from '../utils/fetchData';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import '../styles/App.scss';
@@ -38,21 +37,11 @@ const LeftArrow = () => {
 
 const CategoriesBar = ({ category, setCategory, setExercises }) => {
   const categories = ['all', 'cardio', 'chest', 'back', 'upper arms', 'shoulders', 'upper legs', 'lower arms','waist', 'lower legs', 'neck']
-  // const [categories, setCategories] = useState(bodyPartsArr);
   const [selected, setSelected] = useState('all')
 
   const handleSelected = (event, newSelect) => {
     setSelected(newSelect);
   };
-
-  // useEffect(() => {
-  //   const fetchCategories = async () => {
-  //     const bodyParts = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
-  //     setCategories(['all', ...bodyParts]);
-  //   };
-
-  //   fetchCategories();
-  // }, []);
 
   const bodyParts = categories.map((bodyPart, index) => {
     return (

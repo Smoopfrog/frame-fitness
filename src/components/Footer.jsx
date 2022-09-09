@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import { Stack, Box } from '@mui/system';
+import { Stack } from '@mui/system';
 import React from 'react';
 import Break from '../assets/break.gif';
 import '../styles/App.scss';
