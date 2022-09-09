@@ -6,11 +6,15 @@ import All from '../assets/all.jpg';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import CheckIcon from '@mui/icons-material/Check';
+import ToggleButton from '@mui/material/ToggleButton';
 
 const Profile = () => {
 
   const [counter, setCounter] = useState(0);
   const [counterRep, setCounterRep] = useState(0);
+  const [selected, setSelected] = React.useState(false);
+
 
   return (
     <Stack className='profile' spacing={5}>
@@ -73,7 +77,7 @@ const Profile = () => {
                 <Button className='quantity-btn'  onClick={()=> 
                 {setCounterRep(counterRep + 1)}}><AddIcon /></Button>
 
-                {<Box style={{width: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: '5px'}} className='quantity-counter' >{counterRep}</Box>}
+                {<Box className='quantity-counter' >{counterRep}</Box>}
 
                 {<Button className='quantity-btn' disabled={counterRep <= 0} onClick={() => {
                 setCounterRep(counterRep - 1)
@@ -81,6 +85,21 @@ const Profile = () => {
 
               </ButtonGroup>
             </Box>
+
+            <ToggleButton
+              sx={{"&.Mui:hover, &.Mui-selected, &.Mui-selected:hover": {
+                color: "white",
+                backgroundColor: '#00A5B8',
+              }}}
+              className='toggle'
+                value="check"
+                selected={selected}
+                onChange={() => {
+                  setSelected(!selected);
+                }}
+              >
+                <CheckIcon fontSize='large' />
+            </ToggleButton>
 
           </Stack>
       </Stack>
