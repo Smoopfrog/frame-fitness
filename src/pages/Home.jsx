@@ -20,4 +20,4 @@ const Home = ({ user }) => {
   )
 }
 
-export default Home
+export default Home;
