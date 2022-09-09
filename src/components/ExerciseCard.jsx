@@ -11,10 +11,10 @@ const ExerciseCard = ({exercise}) => {
       <Typography className="exercise-card-name" sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
         {exercise.name}
       </Typography>
-      <img className='exercise-img' margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy" 
+      <img style={{height: '310px'}} margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy" 
       />
       <Stack direction="row">
-        <Box className="exercise-card-btn" variant="text">
+        <Box className="exercise-card-btn" >
           {exercise.bodyPart}
         </Box>
         <Box className="exercise-card-btn">
