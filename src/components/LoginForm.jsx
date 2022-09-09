@@ -12,7 +12,7 @@ const LoginForm = ({ setUser }) => {
     password: '',
   }
   const validationSchema = Yup.object().shape({
-    password: Yup.string().min(8).required("Required")
+    password: Yup.string().required("Required")
   })
   const onSubmit = async (values, props) => {
     const username = values.username;
