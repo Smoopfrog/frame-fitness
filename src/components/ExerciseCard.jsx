@@ -8,12 +8,11 @@ const axios = require('axios')
 const ExerciseCard = ({ exercise, user }) => {
 
   const addExercise = () => {
-
     const data = {
       userId: user.id,
-      exerciseId: exercise.id
+      exercise: exercise
     }
-    
+
     axios.post('/exercises', data)
       .then(function (response) {
         alert('added exercise')
