@@ -15,7 +15,7 @@ module.exports = (db) => {
   router.get('/exercises', (req, res) =>{
     const userId = req.query.userId
     
-    db.query(`SELECT * FROM workouts WHERE user_id = $1`, [userId])
+    db.query(`SELECT exerciseId FROM workouts WHERE user_id = $1`, [userId])
       .then(data => {
         const workout = data.rows;
         res.json({ workout });
