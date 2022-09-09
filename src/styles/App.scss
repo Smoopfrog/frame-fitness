@@ -18,6 +18,10 @@ html {
     }
   }
 
+  .toggle-up:active {
+    transform: scale(1.2, 1.2) !important;
+  }
+
   .nav-elements::before {
     content: "";
     position: absolute;
