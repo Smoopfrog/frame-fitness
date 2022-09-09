@@ -4,4 +4,8 @@ CREATE TABLE users (
   passhash VARCHAR(28) NOT NULL
 );
 
-INSERT INTO users (username, passhash) VALUES ($1, $2);
+CREATE TABLE workouts (
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER REFERENCES users(id),
+  exerciseId int NOT NULL
+);

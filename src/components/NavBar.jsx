@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Stack, Button } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
@@ -6,12 +6,24 @@ import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
+import axios from 'axios';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
-const Navbar = () => {
-  const [user, setUser] = useState('')
+const Navbar = ({ user, setUser, workout, setWorkout }) => {
+  const signOut =  () => setUser('')
 
-  const signOut = () => setUser('')
+  const params = { userId: user.id } 
+
+  const getWorkout = async() => {
+    await axios.get('/exercises', {params})
+    .then(function (response) {
+        console.log(response.data.workout)
+        setWorkout(response.data.workout)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   return (
     <Stack
@@ -84,11 +96,16 @@ const Navbar = () => {
       }
 
       {user &&
-        <Stack>
-          <p>
+        <Stack
+        direction='row'
+        alignItems='center'
+        >
+          <Box>
             {user.username}
-          </p>
-          <Button onClick={signOut}>Log Out</Button>
+          </Box>
+          <Button onClick={signOut}>Sign Out</Button>
+          <Button onClick={getWorkout}>Workout plan</Button>
+
         </Stack>
       }
 
