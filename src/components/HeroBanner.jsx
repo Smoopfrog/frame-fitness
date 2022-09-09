@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 import React from 'react';
 import Banner from '../assets/banner.jpg';
