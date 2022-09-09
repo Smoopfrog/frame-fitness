@@ -5,7 +5,7 @@ import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
 import { useHref } from "react-router-dom";
 
-const Exercises = ({ exercises, setExercises, category }) => {
+const Exercises = ({ exercises, setExercises, category, user }) => {
   const [page, setPage] = useState(1);
   const [exercisesPerPage] = useState(8);
 
@@ -33,7 +33,7 @@ const Exercises = ({ exercises, setExercises, category }) => {
   };
 
   const exerciseCards = currentExercises.map((exercise, index) => {
-    return (<ExerciseCard key={index} exercise={exercise} />)
+    return (<ExerciseCard key={index} exercise={exercise} user={user} />)
   })
 
   return (
