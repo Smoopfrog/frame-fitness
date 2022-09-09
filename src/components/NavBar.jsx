@@ -7,6 +7,7 @@ import CustomizedDialogs from './Authentication';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import axios from 'axios';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
 const Navbar = ({ user, setUser, workout, setWorkout }) => {
   const signOut =  () => setUser('')
@@ -68,6 +69,13 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           marginRight='40px'
           marginTop='10px'
         >
+
+          <ArrowCircleUpIcon 
+          className={"toggle-up"}
+          onClick={() => window.scrollTo({ top: 0 })} 
+          fontSize='large' 
+          />
+        
           <a className='nav-elements' >
             <CustomizedDialogs title="Sign In Here" auth='Login' >
               <LoginForm
@@ -90,13 +98,17 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
       {user &&
         <Stack
         direction='row'
+        gap='20px'
+        fontSize='26px'
         alignItems='center'
+        marginRight='40px'
+        marginTop='10px'
         >
-          <Box>
-            {user.username}
+          <Box style={{color: '#FFF'}} >
+            Welcome {user.username}!
           </Box>
-          <Button onClick={signOut}>Sign Out</Button>
-          <Button onClick={getWorkout}>Workout plan</Button>
+          <a className='nav-elements' onClick={getWorkout}>My Workouts</a>
+          <a className='nav-elements' onClick={signOut}>Sign Out</a>
 
         </Stack>
       }

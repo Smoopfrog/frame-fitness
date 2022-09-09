@@ -13,12 +13,11 @@ const Home = ({ user }) => {
   return (
     <Box>
       <HeroBanner />
-      <SearchBar setExercises={setExercises} />
-      <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises} />
-      {/* <div style={{ height: "400px" }}></div> */}
+      <SearchBar setExercises={setExercises}/>
+      <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
       <Exercises category={category} exercises={exercises} setExercises={setExercises} user={user} />
     </Box>
   )
 }
 
-export default Home
+export default Home;

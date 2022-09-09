@@ -18,6 +18,14 @@ html {
     }
   }
 
+  .toggle-up {
+    color: #FFF;
+    padding-bottom: 7px;
+    &:active {
+      transform: scale(1.2, 1.2) !important;
+    };
+  }
+  
   .nav-elements::before {
     content: "";
     position: absolute;
