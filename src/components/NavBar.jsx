@@ -6,6 +6,7 @@ import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 
 const Navbar = () => {
   const [user, setUser] = useState('')
@@ -56,6 +57,13 @@ const Navbar = () => {
           marginRight='40px'
           marginTop='10px'
         >
+
+          <ArrowCircleUpIcon 
+          className={"toggle-up"}
+          onClick={() => window.scrollTo({ top: 0 })} 
+          fontSize='large' 
+          />
+        
           <a className='nav-elements' >
             <CustomizedDialogs title="Sign In Here" auth='Login' >
               <LoginForm
@@ -80,7 +88,7 @@ const Navbar = () => {
           <p>
             {user.username}
           </p>
-          <Button onClick={signOut}>Sign Out</Button>
+          <Button onClick={signOut}>Log Out</Button>
         </Stack>
       }
 
