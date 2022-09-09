@@ -15,7 +15,10 @@ app.use(
 );
 
 app.use('/', userRoutes())
+<<<<<<< HEAD
 // app.use('/', userRoutes())
+=======
+>>>>>>> fbd204eb52e0d266471e5baa3fdc1b129c5dbf33
 
 app.listen(port, () => { console.log(`Example app listening on port ${port}`) })
 
@@ -33,4 +36,8 @@ app.listen(port, () => { console.log(`Example app listening on port ${port}`) })
 //     httpOnly: true,
 //     sameSite: process.env.ENVIRONMENT === 'prduction' ? "none" : "lax"
 //   }
+<<<<<<< HEAD
 // }))
+=======
+// }))
+>>>>>>> fbd204eb52e0d266471e5baa3fdc1b129c5dbf33

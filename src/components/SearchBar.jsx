@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField, Box, Button, Typography } from "@mui/material";
 import { fetchData, exerciseOptions } from "../utils/fetchData";
 import '../styles/App.scss';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
 const SearchBar = ({ setExercises }) => {
   const [search, setSearch] = useState('');
@@ -29,13 +30,13 @@ const SearchBar = ({ setExercises }) => {
   };
 
   return (
-    <Box className="search-bar" >
-      <Typography sx={{color: '#FF9700', fontFamily: 'Calibre', fontSize: '40px', lineHeight: 'normal', mb: '10px', color: '#00A5B8'}}>
-        Explore a Catelogue of 1300+ Exercises
+    <Box className="search-bar" id="exercises" >
+      <Typography sx={{color: '#FF9700', fontFamily: 'Calibre', fontSize: {lg: '45px', md: '35px', xs: '25px'}, lineHeight: 'normal', mb: '25px', color: '#00A5B8'}}>
+        Explore a Catalogue of 1300+ Exercises
       </Typography>
       <TextField
-        height="76px"
-        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px' }, width: { lg: '500px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+        
+        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px', height: {md: '1.5em', xs: '1em'}, fontSize: {md: '20px', xs: '16px'} }, width: { lg: '500px', md: '400px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
         placeholder="Search Exercises"
@@ -44,12 +45,12 @@ const SearchBar = ({ setExercises }) => {
       >
       </TextField>
       <Button className="search-btn"
+        endIcon={<FitnessCenterIcon />}
         onClick={searchFunction}
-        sx={{'&:hover': {backgroundColor: '#fff', color: '#FF9700', border: '2px solid #FF9700', padding: '14px 6px'
+        sx={{height: {md: '63px', xs: '49px'},'&:hover': {backgroundColor: '#fff', color: '#FF9700', border: '2px solid #FF9700', padding: '14px 8px'
         }}}
       >
-        Search
-      </Button>
+        Search</Button>
     </Box>
   )
 };

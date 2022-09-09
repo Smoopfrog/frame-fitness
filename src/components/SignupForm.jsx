@@ -5,7 +5,6 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup';
 const axios = require('axios').default;
 
-
 const SignupForm = () => {
 
   const initialValues = {
@@ -21,20 +20,33 @@ const SignupForm = () => {
 
   const onSubmit = (values, props) => {
 
-    const userData  = {
+    const userData = {
       username: values.username,
       passhash: values.password
     }
 
-    axios.post('/users', JSON.stringify(userData))
-      .then(res => {
-        console.log("res-signup", res)
-      })
-      .catch((error) => {
-        console.log('error', error);
-      });
+    const validationSchema = Yup.object().shape({
+      username: Yup.string().min(6, "Too short").required("Required"),
+      password: Yup.string().min(6, "Password must be a minimum of 6 characters").required("Required"),
+      confirmPassword: Yup.string().oneOf([Yup.ref('password')], "Passwords do not match").required('Required')
+    })
+    const onSubmit = (values, props) => {
 
-    props.resetForm()
+      const userData = {
+        username: values.username,
+        password: values.password
+      }
+
+      axios.post('/users', userData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+      props.resetForm();
+    }
   }
   
   return (
