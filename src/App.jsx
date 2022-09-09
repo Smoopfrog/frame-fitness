@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import { Box } from '@mui/material';
 import { Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
 
 const axios = require('axios').default;
 
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/profile' element={<Profile />} />
       </Routes>
       <Footer />
     </Box>
