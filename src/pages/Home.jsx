@@ -14,10 +14,8 @@ const Home = () => {
     <Box>
       <HeroBanner />
       <SearchBar setExercises={setExercises}/>
-    <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
-    <div style={{height: "400px"}}></div>
-    <Exercises category={category} exercises={exercises} setExercises={setExercises} />
-    
+      <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
+      <Exercises category={category} exercises={exercises} setExercises={setExercises} />
     </Box>
   )
 }
