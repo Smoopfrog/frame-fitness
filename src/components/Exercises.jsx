@@ -3,6 +3,7 @@ import { Pagination, Stack } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
+import { useHref } from "react-router-dom";
 
 const Exercises = ({ exercises, setExercises, category }) => {
   const [page, setPage] = useState(1);
@@ -49,6 +50,7 @@ const Exercises = ({ exercises, setExercises, category }) => {
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={page}
+            onClick={() => window.scrollTo(0, 950)}
             onChange={paginate}
             size="large"
           />
