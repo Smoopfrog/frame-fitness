@@ -41,7 +41,7 @@ const Navbar = () => {
           </Link>
         </Box>
 
-        <a className='nav-elements' href="#exercises" style={{marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
+        <a className='nav-elements' href="/#exercises" style={{marginLeft: '30px', fontSize:'26px'}}>Exercises</a>
       </Stack>
 
       <Stack
