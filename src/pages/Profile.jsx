@@ -17,15 +17,16 @@ const Profile = () => {
 
 
   return (
-    <Stack className='profile' spacing={5}>
+    
+    <Stack className='profile' spacing={3}>
       <Typography 
         sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px'}, color: '#00A5B8'}}
       >My Profile
       </Typography>
 
-      <Stack direction='row' spacing={5 } >
+      <Stack sx={{ flexDirection: { xs: 'column', sm: 'row'}}}  >
 
-        <Stack className="profile-card" 
+        <Stack className="profile-card" m='20px'
           sx={{'&:hover': {boxShadow: '0 0 3px 5px #FF9700'}, objectPosition: 'center center'}}
         >
           <Typography className="profile-card-name" 
@@ -53,7 +54,7 @@ const Profile = () => {
           </Stack>
 
         </Stack> 
-          <Stack spacing={5} className='quantity-stack' >
+          <Stack className='quantity-stack' >
             <Box >
               <Typography className='quantity-name' >Sets</Typography>
               <ButtonGroup size="large" aria-label="outlined button group" >
@@ -71,7 +72,7 @@ const Profile = () => {
             </Box>
 
             <Box style={{alignItems: 'center'}}>
-              <Typography className='quantity-name' >Reps</Typography>
+              <Typography className='quantity-name' mt= '10px'>Reps</Typography>
               <ButtonGroup size="large" aria-label="small outlined button group">
 
                 <Button className='quantity-btn'  onClick={()=> 
@@ -86,11 +87,11 @@ const Profile = () => {
               </ButtonGroup>
             </Box>
 
-            <ToggleButton
+            <ToggleButton 
               sx={{"&.Mui:hover, &.Mui-selected, &.Mui-selected:hover": {
                 color: "white",
-                backgroundColor: '#00A5B8',
-              }}}
+                backgroundColor: '#00A5B8'
+              }, width: '150px', mt: '20px'}}
               className='toggle'
                 value="check"
                 selected={selected}

@@ -184,10 +184,8 @@ html {
   .profile {
     width: 100vw;
     margin-top: 100px;
-    height: 500px;
     align-items: center;
     justify-content: center;
-
   }
 
   .profile-card {
@@ -244,6 +242,7 @@ html {
   .quantity-stack {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 
   .quantity-btn {
