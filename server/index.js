@@ -5,6 +5,7 @@ const port = 8000;
 const db = require('./db/db.js');
 const userRoutes = require('./routers/authRouter.js')
 require('dotenv').config();
+db.connect();
 // const router = express.Router();
 // const helmet = require('helmet')
 // const authRouter = require('./routers/authRouter');
@@ -14,7 +15,12 @@ app.use(
   cors()
 );
 
-app.use('/', userRoutes())
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// app.use(express.bodyParser());
+
+app.use('/', userRoutes(db))
 
 app.listen(port, () => { console.log(`Example app listening on port ${port}`) })
 

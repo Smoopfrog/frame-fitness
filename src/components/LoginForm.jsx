@@ -14,8 +14,8 @@ const LoginForm = () => {
       password: Yup.string().min(8).required("Required")
     })
     const onSubmit = (values, props) => {
-        
-        console.log(JSON.stringify(values))
+        console.log(values)
+        // console.log(JSON.stringify(values))
         props.resetForm()
         
     }

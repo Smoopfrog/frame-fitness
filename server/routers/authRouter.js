@@ -5,10 +5,17 @@ const router = express.Router();
 // // const validateLogin = require('../controllers/validateLogin');
 
 
-module.exports = () => {
+module.exports = (db) => {
   router.post('/users', (req, res) => {
-    console.log('res', res)
-    res.send('hello')
+    // console.log('res', res)
+    console.log('username', req.body.username)
+    console.log('password', req.body.password)
+    const username = req.body.username;
+    const password = req.body.password;
+    
+    db.query(`INSERT INTO users (username, passhash) VALUES ($1, $2)`, [username, password]);
+
+    res.send(req.body)
   })
   
   return router;
