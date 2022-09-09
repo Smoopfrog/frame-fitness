@@ -9,14 +9,13 @@ html {
   width: 100vw;
   scroll-behavior: smooth; 
 
-  a:hover {
-    cursor: pointer;
-  }
-
   .nav-elements {
     position: relative;
     color: white;
     text-decoration: none;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .nav-elements::before {
