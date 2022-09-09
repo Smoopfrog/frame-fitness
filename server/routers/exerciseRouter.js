@@ -4,7 +4,6 @@ const router = express.Router();
 
 module.exports = (db) => {
   router.post('/exercises', (req, res) => {
-    console.log('req.body', req.body)
     const userId = req.body.userId;
     const exerciseId = req.body.exerciseId;
     
@@ -14,12 +13,10 @@ module.exports = (db) => {
   })
   
   router.get('/exercises', (req, res) =>{
-    console.log('req', req.query.userId)
     const userId = req.query.userId
     
     db.query(`SELECT * FROM workouts WHERE user_id = $1`, [userId])
       .then(data => {
-        console.log(data.rows)
         const workout = data.rows;
         res.json({ workout });
       })

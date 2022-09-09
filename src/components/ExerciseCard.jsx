@@ -8,9 +8,6 @@ const axios = require('axios')
 const ExerciseCard = ({ exercise, user }) => {
 
   const addExercise = () => {
-    console.log('exercise.id', exercise.id)
-    console.log('user.id', user.id)
-
     const data = {
       userId: user.id,
       exerciseId: exercise.id

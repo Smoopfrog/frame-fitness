@@ -8,15 +8,16 @@ import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import axios from 'axios';
 
-const Navbar = ({ user, setUser }) => {
+const Navbar = ({ user, setUser, workout, setWorkout }) => {
   const signOut =  () => setUser('')
-  
+
   const params = { userId: user.id } 
 
   const getWorkout = async() => {
     await axios.get('/exercises', {params})
     .then(function (response) {
         console.log(response.data.workout)
+        setWorkout(response.data.workout)
     })
     .catch(function (error) {
       console.log(error);

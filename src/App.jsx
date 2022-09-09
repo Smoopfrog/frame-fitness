@@ -13,15 +13,18 @@ axios.defaults.baseURL = 'http://localhost:8000';
 
 function App() {
   const [user, setUser] = useState('')
+  const [workout, setWorkout] = useState([]);
 
   return (
     <Box  m='auto' >
       <Navbar 
         user={user}
         setUser={setUser}
+        workout={workout}
+        setWorkout={setWorkout}
       />
       <Routes>
-        <Route path='/' element={<Home user={user} />} />
+        <Route path='/' element={<Home user={user}  />} />
       </Routes>
       <Footer />
     </Box>
