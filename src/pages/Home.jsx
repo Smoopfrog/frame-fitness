@@ -6,7 +6,7 @@ import Exercises from '../components/Exercises'
 import SearchBar from '../components/SearchBar'
 
 
-const Home = () => {
+const Home = ({ user }) => {
   const [category, setCategory] = useState('all')
   const [exercises, setExercises] = useState([])
 
@@ -15,7 +15,7 @@ const Home = () => {
       <HeroBanner />
       <SearchBar setExercises={setExercises}/>
       <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
-      <Exercises category={category} exercises={exercises} setExercises={setExercises}/>
+      <Exercises category={category} exercises={exercises} setExercises={setExercises} user={user} />
     </Box>
   )
 }

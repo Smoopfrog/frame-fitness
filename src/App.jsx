@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/App.scss';
 import Navbar from './components/NavBar';
 import Home from './pages/Home';
@@ -12,11 +12,16 @@ axios.defaults.baseURL = 'http://localhost:8000';
 
 
 function App() {
+  const [user, setUser] = useState('')
+
   return (
     <Box  m='auto' >
-      <Navbar />
+      <Navbar 
+        user={user}
+        setUser={setUser}
+      />
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home user={user} />} />
       </Routes>
       <Footer />
     </Box>

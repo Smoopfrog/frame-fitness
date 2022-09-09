@@ -6,11 +6,22 @@ import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
+import axios from 'axios';
 
-const Navbar = () => {
-  const [user, setUser] = useState('')
+const Navbar = ({ user, setUser }) => {
+  const signOut =  () => setUser('')
+  
+  const params = { userId: user.id } 
 
-  const signOut = () => setUser('')
+  const getWorkout = async() => {
+    await axios.get('/exercises', {params})
+    .then(function (response) {
+        console.log(response.data.workout)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  }
 
   return (
     <Stack
@@ -77,10 +88,12 @@ const Navbar = () => {
 
       {user &&
         <Stack>
-          <p>
+          <Box>
             {user.username}
-          </p>
+          </Box>
           <Button onClick={signOut}>Sign Out</Button>
+          <Button onClick={getWorkout}>Workout plan</Button>
+
         </Stack>
       }
 
