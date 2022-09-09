@@ -13,7 +13,7 @@ const Profile = () => {
 
   const [counter, setCounter] = useState(0);
   const [counterRep, setCounterRep] = useState(0);
-  const [selected, setSelected] = React.useState(false);
+  const [selected, setSelected] = useState(false);
 
 
   return (
