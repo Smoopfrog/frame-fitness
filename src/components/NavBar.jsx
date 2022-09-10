@@ -25,6 +25,22 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
     });
   }
 
+  // menu
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <Stack
       backgroundColor='#FF9700'
@@ -104,6 +120,11 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
         marginRight='40px'
         marginTop='10px'
         >
+           <ArrowCircleUpIcon 
+          className={"toggle-up"}
+          onClick={() => window.scrollTo({ top: 0 })} 
+          fontSize='large' 
+          />
           <Box style={{color: '#FFF'}} >
             Welcome {user.username}!
           </Box>
