@@ -31,12 +31,12 @@ const SearchBar = ({ setExercises }) => {
 
   return (
     <Box className="search-bar" id="exercises" >
-      <Typography sx={{ fontFamily: 'Calibre', fontSize: {lg: '45px', md: '35px', xs: '25px'}, lineHeight: 'normal', mb: '25px', color: '#00A5B8'}}>
+      <Typography sx={{ fontFamily: 'Calibre', fontSize: {lg: '45px', md: '35px', xs: '25px'}, lineHeight: 'normal', mb: '25px', color: '#00A5B8'}} >
         Explore a Catalogue of 1300+ Exercises
       </Typography>
       <TextField
         
-        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px', height: {md: '1.5em', xs: '1em'}, fontSize: {md: '20px', xs: '16px'} }, width: { lg: '500px', md: '400px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px' }}
+        sx={{ input: { fontWeight: '700', border: 'none', borderRadius: '4px', height: {md: '1.5em', xs: '1em'}, fontSize: {md: '20px', xs: '16px'} }, width: { lg: '500px', md: '400px', xs: '300px' }, backgroundColor: '#fff', borderRadius: '40px', mb: '5px' }}
         value={search}
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
         placeholder="Search Exercises"
