@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Stack, Button } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
 import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
@@ -8,6 +8,9 @@ import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import axios from 'axios';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 const Navbar = ({ user, setUser, workout, setWorkout }) => {
   const signOut =  () => setUser('')
@@ -24,22 +27,9 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
       console.log(error);
     });
   }
-
-  // menu
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
-
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-
-    setOpen(false);
-  };
+    const [click, setClick] = useState(false)
+    const handleClick = () => setClick(!click);
+    const closeMenu = () => setClick(false);
 
   return (
     <Stack
@@ -53,13 +43,13 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
       top='0'
       zIndex='99'
       align='center'
-      width='100%'
+      width='100vw'
     >
       <Stack
         direction='row'
         alignItems='center'
-        marginLeft='20px'
         marginTop='10px'
+        sx={{marginLeft: { xs: '10px', md: '70px'}}}
       >
         <Box>
           <Link to='/'>
@@ -68,7 +58,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           </Link>
         </Box>
 
-        <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+        <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
           <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
             <h1 >&nbsp;Frame Fitness</h1>
           </Link>
@@ -91,8 +81,8 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           onClick={() => window.scrollTo({ top: 0 })} 
           fontSize='large' 
           />
-        
-          <a className='nav-elements' >
+          {/* Desktop/tablet view */}
+          <a className='nav-elements' href="/#login" >
             <CustomizedDialogs title="Sign In Here" auth='Login' >
               <LoginForm
                 setUser={setUser}
@@ -100,13 +90,42 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
             </CustomizedDialogs>
           </a>
 
-          <a className='nav-elements' >
+          <a className='nav-elements' href="/#signin" >
             <CustomizedDialogs title="Register Here" auth="Sign up" >
               <SignupForm 
                 setUser={setUser}
               />
             </CustomizedDialogs>
           </a>
+          
+          {/* Mobile view */}
+          <Stack ml='30px' direction='row'
+          mr='40px'>
+
+            <Box className='menu-icon'  onClick={handleClick}>
+            {click ? <CloseIcon fontSize='large' /> : <MenuIcon   fontSize='large' />}
+            </Box>
+
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+                <div style={{height: '30px'}} />
+                <a className='nav-elements-mobile' href="/#login" onClick={closeMenu}>
+                  <CustomizedDialogs title="Sign In Here"   auth='Login' >
+                    <LoginForm
+                      setUser={setUser}
+                    />
+                  </CustomizedDialogs>
+                </a>
+          
+                <a className='nav-elements-mobile' href="/#signin" onClick={closeMenu} >
+                  <CustomizedDialogs title="Register Here" auth="Sign up" >
+                    <SignupForm setUser={setUser} />
+                  </CustomizedDialogs>
+                </a>
+
+                <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>
+              
+            </ul>
+          </Stack>
 
         </Stack>
       }
@@ -120,16 +139,43 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
         marginRight='40px'
         marginTop='10px'
         >
-           <ArrowCircleUpIcon 
+          <ArrowCircleUpIcon 
           className={"toggle-up"}
           onClick={() => window.scrollTo({ top: 0 })} 
           fontSize='large' 
           />
-          <Box style={{color: '#FFF'}} >
+
+          {/* Desktop/tablet view */}
+          <Box className='welcome-user' >
             Welcome {user.username}!
           </Box>
-          <a className='nav-elements' onClick={getWorkout}>My Workouts</a>
-          <a className='nav-elements' onClick={signOut}>Sign Out</a>
+          <a className='nav-elements' onClick={getWorkout} >My Workouts</a>
+          <a className='nav-elements' onClick={signOut} >Sign Out</a>
+
+          {/* Mobile view */}
+          <Stack  ml='30px' direction='row'
+          mr='40px'>
+
+            <Box className='menu-icon'  onClick={handleClick}>
+            {click ? <CloseIcon fontSize='large' /> : <MenuIcon   fontSize='large' />}
+            </Box>
+
+          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+
+            <Typography className='nav-elements-mobile' style={{ color: '#00A5B8', marginTop: '20px', fontSize: '24px', background: '#FFF', border: 'none'}} >
+              Welcome {user.username}!
+            </Typography>
+
+            <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>
+
+            <a className='nav-elements-mobile' onClick={() => (closeMenu, getWorkout)}>My Workouts</a>
+
+            <a className='nav-elements-mobile' href="/" onClick={() => (closeMenu, signOut)}>Sign Out</a>
+
+          </ul>
+
+          </Stack>
+
 
         </Stack>
       }
