@@ -58,7 +58,7 @@ export default function CustomizedDialogs({children, title, auth}) {
 
   return (
     <div>
-      <a variant="text" onClick={handleClickOpen} >
+      <a onClick={handleClickOpen} >
         {auth}
       </a>
       <BootstrapDialog
