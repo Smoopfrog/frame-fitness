@@ -8,12 +8,11 @@ const axios = require('axios')
 const ExerciseCard = ({ exercise, user }) => {
 
   const addExercise = () => {
-
     const data = {
       userId: user.id,
-      exerciseId: exercise.id
+      exercise: exercise
     }
-    
+
     axios.post('/exercises', data)
       .then(function (response) {
         alert('added exercise')
@@ -31,7 +30,7 @@ const ExerciseCard = ({ exercise, user }) => {
       <Typography className="exercise-card-name" sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
         {exercise.name}
       </Typography>
-      <img style={{height: '310px'}} margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy" 
+      <img style={{ height: '310px' }} margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy"
       />
       <Stack direction="row">
         <Box className="exercise-card-btn" >
@@ -40,10 +39,12 @@ const ExerciseCard = ({ exercise, user }) => {
         <Box className="exercise-card-btn">
           {exercise.equipment}
         </Box>
-        <Button onClick={addExercise} className="exercise-card-add-btn" sx={{ '&:hover': { color: '#FF9700', border: '2px solid #FF9700', p: '4px 6px' } }}>
-          <AddIcon fontSize="large" />
+        {user &&
+          <Button onClick={addExercise} className="exercise-card-add-btn" sx={{ '&:hover': { color: '#FF9700', border: '2px solid #FF9700', p: '4px 6px' } }}>
+            <AddIcon fontSize="large" />
+          </Button>
+        }
 
-        </Button>
       </Stack>
     </Box>
 
