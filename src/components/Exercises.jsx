@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Pagination, Stack } from "@mui/material";
+import { Pagination, Stack, Typography } from "@mui/material";
 import { exerciseOptions, fetchData } from "../utils/fetchData";
 import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
 
-const Exercises = ({ exercises, setExercises, category }) => {
+const Exercises = ({ exercises, setExercises, category, user }) => {
   const [page, setPage] = useState(1);
   const [exercisesPerPage] = useState(8);
 
@@ -32,14 +32,18 @@ const Exercises = ({ exercises, setExercises, category }) => {
   };
 
   const exerciseCards = currentExercises.map((exercise, index) => {
-    return (<ExerciseCard key={index} exercise={exercise} />)
+    return (<ExerciseCard key={index} exercise={exercise} user={user} />)
   })
 
   return (
     <Box id="exercises"
-      mt="20px"
+      mt="80px"
       p="20px"
     >
+      {!user &&
+      <Typography className='user-message' sx={{ fontSize: {lg: '45px', md: '35px', xs: '25px'}}}>Signup or Login to Add Exercises to Your Workout!</Typography>
+      }
+
       <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
         {exerciseCards}
       </Stack>
@@ -49,6 +53,7 @@ const Exercises = ({ exercises, setExercises, category }) => {
             defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={page}
+            onClick={() => window.scrollTo(0, 950)}
             onChange={paginate}
             size="large"
           />

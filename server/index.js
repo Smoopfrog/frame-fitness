@@ -3,8 +3,14 @@ const app = express();
 const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
+const port = 8000;
+const db = require('./db/db.js');
+const userRoutes = require('./routers/authRouter.js')
+const exerciseRoutes = require('./routers/exerciseRouter.js')
+require('dotenv').config();
 app.use(cors());
 
+//Socket io connection
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -29,3 +35,22 @@ io.on("connection", (socket) => {
 server.listen(3001, () => {
   console.log("SERVER RUNNING")
 });
+
+
+
+//DB connection
+db.connect();
+
+app.use(
+  cors()
+);
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use('/', userRoutes(db))
+app.use('/', exerciseRoutes(db))
+
+app.listen(port, () => { console.log(`Example app listening on port ${port}`) })
+
