@@ -160,37 +160,34 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           <a className='nav-elements' onClick={signOut} >Sign Out</a>
 
           {/* Mobile view */}
-          <Stack  ml='30px' direction='row'
-          mr='40px'>
+          <Stack  ml='30px' direction='row' mr='40px'>
 
             <Box className='menu-icon'  onClick={handleClick}>
             {click ? <CloseIcon fontSize='large' /> : <MenuIcon   fontSize='large' />}
             </Box>
 
-          <ul className={click ? 'nav-menu active' : 'nav-menu'}>
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
 
-            <Typography className='nav-elements-mobile' style={{ color: '#00A5B8', marginTop: '20px', fontSize: '24px', background: '#FFF', border: 'none'}} >
-              Welcome {user.username}!
-            </Typography>
+              <Typography className='nav-elements-mobile' style={{ color: '#00A5B8', marginTop: '20px', fontSize: '24px', background: '#FFF', border: 'none'}} >
+                Welcome {user.username}!
+              </Typography>
 
-            <a className='nav-elements-mobile' onClick={getWorkout} >
-              <FullScreenDialog title="My Workouts" >
-                <Profile />
-              </FullScreenDialog>
-            </a>
+              <a className='nav-elements-mobile' onClick={getWorkout} >
+                <FullScreenDialog title="My Workouts" >
+                  <Profile />
+                </FullScreenDialog>
+              </a>
 
-            <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>
+              <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>
 
-            <a className='nav-elements-mobile' href="/" onClick={() => (closeMenu, signOut)}>Sign Out</a>
+              <a className='nav-elements-mobile' href="/" onClick={() => (closeMenu, signOut)}>Sign Out</a>
 
-          </ul>
+            </ul>
 
           </Stack>
 
-
         </Stack>
       }
-
     </Stack>
   )
 }
