@@ -24,13 +24,11 @@ io.on("connection", (socket) => {
   console.log(`User connected: ${socket.id}`);
 
   socket.on("join", (data) => {
-    console.log(data)
     socket.join(data)
     console.log(`User with ID ${socket.id} joined chat`)
   })
 
   socket.on("send_message", (data) => {
-    console.log(data)
     socket.to(data.room).emit("receive_message", data);
   });
 

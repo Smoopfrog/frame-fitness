@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Stack, Typography, Button } from '@mui/material';
+import { Box, Stack, Typography } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
 import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
