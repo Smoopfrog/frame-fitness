@@ -4,14 +4,15 @@ import { Box, Stack, Typography, Button } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
 import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
+import FullScreenDialog from './ProfilePopUp';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import Chat from './Chat'
+import Profile from '../pages/Profile';
 import axios from 'axios';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
-// import { Socket } from 'socket.io-client';
 import io from "socket.io-client";
 
 const socket = io.connect("http://localhost:3001")
@@ -166,7 +167,12 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
             Welcome {user.username}!
           </Box>
           <a className='nav-elements' onClick={joinChat}>Chat</a>
-          <a className='nav-elements' onClick={getWorkout} >My Workouts</a>
+
+          <a className='nav-elements' onClick={getWorkout} >
+            <FullScreenDialog title="My Workouts">
+              <Profile />
+            </FullScreenDialog>
+          </a>
           <a className='nav-elements' onClick={signOut} >Sign Out</a>
           {showChat &&  
             <Chat user={user} socket={socket} />
@@ -186,9 +192,13 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
               Welcome {user.username}!
             </Typography>
 
-            <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>
+            <a className='nav-elements-mobile' onClick={getWorkout} >
+              <FullScreenDialog title="My Workouts" >
+                <Profile />
+              </FullScreenDialog>
+            </a>
 
-            <a className='nav-elements-mobile' onClick={() => (closeMenu, getWorkout)}>My Workouts</a>
+            <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>
 
             <a className='nav-elements-mobile' href="/" onClick={() => (closeMenu, signOut)}>Sign Out</a>
 
