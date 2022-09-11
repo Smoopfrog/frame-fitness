@@ -22,7 +22,7 @@ html {
     color: #FFF;
     padding-bottom: 7px;
     &:active {
-      transform: scale(1.2, 1.2) !important;
+      transform: scale(1.15, 1.15) !important;
     };
   }
   
@@ -315,6 +315,9 @@ html {
     margin-left: 10px;
     cursor: pointer;
     color: #FFF;
+    &:active {
+      transform: scale(1.15, 1.15) !important;
+    };
   }
 
   .nav-menu {
