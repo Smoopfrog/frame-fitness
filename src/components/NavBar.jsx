@@ -184,6 +184,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
         >
           <ArrowCircleUpIcon 
           className={"toggle-up"}
+          style={{display: visible ? 'inline' : 'none'}}
           onClick={() => window.scrollTo({ top: 0 })} 
           fontSize='large' 
           />
