@@ -16,8 +16,8 @@ export const HeroBanner = () => {
       <Box sx={{backgroundImage: `url(${Banner})`,
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center top',
-      width: '100vw',
-      height: { lg: '700px', md: '500px', xs: '300px'},
+      width: {sm: '100vw', xs: '95vw'},
+      height: { lg: '700px', md: '500px', sm: '400px', xs: '300px'},
       justifyContent: 'center',
       backgroundSize: 'contain',
       }} />
