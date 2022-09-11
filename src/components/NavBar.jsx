@@ -191,7 +191,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
 
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
 
-              <Typography className='nav-elements-mobile' style={{ color: '#00A5B8', marginTop: '20px', fontSize: '24px', background: '#FFF', border: 'none'}} >
+              <Typography lineHeight='normal' className='nav-elements-mobile' style={{ color: '#00A5B8', marginTop: '20px', fontSize: '26px', background: '#FFF', border: 'none', fontFamily: 'inherit'}} >
                 Welcome {user.username}!
               </Typography>
 
