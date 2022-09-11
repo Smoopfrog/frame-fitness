@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Stack, Typography } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
+import DumbbellOrange from '../assets/dumbbell-orange.png';
 import '../styles/App.scss';
 import CustomizedDialogs from './Authentication';
 import FullScreenDialog from './ProfilePopUp';
@@ -48,10 +49,18 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click);
     const closeMenu = () => setClick(false);
+    const [navbar, setNavbar] = useState(false);
+
+    const changeBackground = () => {
+      window.scrollY >= 70 ? setNavbar(true) : setNavbar(false);
+    }
+    window.addEventListener('scroll', changeBackground);
+
+
 
   return (
     <Stack
-      backgroundColor='#FF9700'
+      className={navbar ? 'navbar active' : 'navbar'}
       direction='row'
       justifyContent='space-between'
       px='20px'
@@ -71,13 +80,15 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
       >
         <Box>
           <Link to='/'>
-            <img src={Dumbbell} alt="logo"
-              style={{ width: '50px', height: '50px' }} />
+            {navbar ? 
+              <img src={Dumbbell} alt="logo" style={{ width: '50px', height: '50px' }} /> :
+                <img src={DumbbellOrange} alt="logo" style={{ width: '50px', height: '50px' }} />}
+
           </Link>
         </Box>
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-          <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>
+          <Link id='name' to='/' >
             <h1 >&nbsp;Frame Fitness</h1>
           </Link>
         </Box>

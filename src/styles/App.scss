@@ -9,9 +9,25 @@ html {
   width: 100vw;
   scroll-behavior: smooth; 
 
+  .navbar {
+    background-color: #FFF;
+  }
+
+  #name {
+    color: #FF9700;
+    text-decoration: none;
+  }
+
+  .navbar.active {
+    background: linear-gradient(90deg, #FF9700 0%, #FF9700 100%);
+    .menu-icon, .chat-icon, .toggle-up, .nav-elements, .nav-elements::before, .welcome-user, #name {
+      color: #FFF;
+    }
+  }
+
   .nav-elements, .welcome-user {
     position: relative;
-    color: #FFF;
+    color: #FF9700;
     text-decoration: none;
     &:hover {
       cursor: pointer;
@@ -19,7 +35,7 @@ html {
   }
 
   .toggle-up {
-    color: #FFF;
+    color: #FF9700;
     padding-bottom: 7px;
     &:active {
       transform: scale(1.15, 1.15) !important;
@@ -34,7 +50,7 @@ html {
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: #FFF;
+    background-color: #FF9700;
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.3s ease;
@@ -303,6 +319,7 @@ html {
    }
    .chat-icon {
     display: none;
+    color: '#FF9700'
    }
 }
 
@@ -315,7 +332,7 @@ html {
     right: 20px;
     transform: translate(-100%, 60%);
     cursor: pointer;
-    color: #FFF;
+    color: #FF9700;
   }
 
   .chat-icon {
@@ -323,7 +340,7 @@ html {
     margin-top: 10px;
     margin-left: 10px;
     cursor: pointer;
-    color: #FFF;
+    color: #FF9700;
     &:active {
       transform: scale(1.15, 1.15) !important;
     };
