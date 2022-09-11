@@ -30,7 +30,7 @@ const Profile = () => {
           sx={{'&:hover': {boxShadow: '0 0 3px 5px #FF9700'}, objectPosition: 'center center'}}
         >
           <Typography className="profile-card-name" 
-              sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
+              sx={{ fontSize: { lg: '30px', md: '26px', xs: '24px' }}} >
             Exercise 
           </Typography>
 
@@ -56,8 +56,8 @@ const Profile = () => {
         </Stack> 
           <Stack className='quantity-stack' >
             <Box >
-              <Typography className='quantity-name' >Sets</Typography>
-              <ButtonGroup size="large" aria-label="outlined button group" >
+              <Typography className='quantity-name'  sx={{ fontSize: { lg: '26px', xs: '24px' }}} >Sets</Typography>
+              <ButtonGroup sx={{ size: {sm: "large", xs: 'medium'}}} aria-label="outlined button group" >
 
                 <Button className='quantity-btn'  onClick={()=> 
                 {setCounter(counter + 1)}}><AddIcon /></Button>
@@ -72,8 +72,8 @@ const Profile = () => {
             </Box>
 
             <Box style={{alignItems: 'center'}}>
-              <Typography className='quantity-name' mt= '10px'>Reps</Typography>
-              <ButtonGroup size="large" aria-label="small outlined button group">
+              <Typography className='quantity-name' sx={{ fontSize: { lg: '26px', xs: '24px' }}} >Reps</Typography>
+              <ButtonGroup aria-label="small outlined button group" sx={{ size: {sm: "large", xs: 'medium'}}} >
 
                 <Button className='quantity-btn'  onClick={()=> 
                 {setCounterRep(counterRep + 1)}}><AddIcon /></Button>
@@ -91,7 +91,7 @@ const Profile = () => {
               sx={{"&.Mui:hover, &.Mui-selected, &.Mui-selected:hover": {
                 color: "white",
                 backgroundColor: '#00A5B8'
-              }, width: '150px', mt: '20px'}}
+              }, width: {sm: '150px', xs: '120px'}, height: { sm: '60px', xs: '50px'}, mt: '20px'}}
               className='toggle'
                 value="check"
                 selected={selected}

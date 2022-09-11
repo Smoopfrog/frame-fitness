@@ -188,8 +188,10 @@ html {
   .profile {
     width: 100vw;
     margin-top: 100px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Calibre';
   }
 
   .profile-card {
@@ -201,6 +203,7 @@ html {
     display: flex;
     align-items: center;
     text-transform: capitalize;
+    font-family: inherit;
   }
 
   .profile-card-name {
@@ -211,6 +214,7 @@ html {
     padding-bottom: 10px;
     text-transform: capitalize;
     height: 82px;
+    font-family: inherit;
   }
 
   .profile-card-btn {
@@ -241,7 +245,9 @@ html {
     display: flex;
     justify-content: center;
     color: #FF9700;
-    font-size: 26px;
+    margin-top: 10px;
+    font-family: inherit;
+    line-height: normal;
   }
 
   .quantity-stack {
