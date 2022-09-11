@@ -25,7 +25,7 @@ const ExerciseCard = ({ exercise, user }) => {
 
   return (
     <Box className="exercise-card"
-      sx={{ '&:hover': { boxShadow: '0 0 3px 5px #FF9700' } }}
+      sx={{ '&:hover': { boxShadow: '0 0 3px 3px #FF9700', transform: 'scale(1.02, 1.02)', transition: 'transform 0.2s ease-in-out' } }}
     >
       <Typography className="exercise-card-name" sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
         {exercise.name}
