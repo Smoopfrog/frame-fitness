@@ -47,7 +47,7 @@ const Profile = () => {
             </Box>
 
             <Button className="profile-card-delete-btn" 
-                sx={{'&:hover': {background: 'white', color: 'red', border: '2px solid red', p: '4px 6px', backgroundColor: 'white'}}}>
+                sx={{minWidth: 'min-content', '&:hover': {background: 'white', color: 'red', border: '2px solid red', p: '4px 6px', backgroundColor: 'white'}}}>
               <DeleteIcon fontSize="large"/>
             </Button>
 
