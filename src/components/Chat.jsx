@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
+import { Box } from '@mui/material';
+
 const Chat = ({ user, socket }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messages, setMessages] = useState([]);
@@ -28,9 +30,9 @@ const Chat = ({ user, socket }) => {
   }, [socket])
 
   return (
-    <div className="chat-window">
+    <Box className="chat-window" sx={{ left: { xl: '70%', l: '65%', md: '60%', sm: '40%', xs: '25%'}}} >
       <div className="chat-header">
-        <p>Chat with an expert</p>
+        <p>Chat with an Expert</p>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
@@ -59,7 +61,7 @@ const Chat = ({ user, socket }) => {
       <div className="chat-footer">
         <input
           type="text"
-          placeholder="message"
+          placeholder="Message"
           value={currentMessage}
           onChange={(event) => {
             setCurrentMessage(event.target.value)
@@ -70,7 +72,7 @@ const Chat = ({ user, socket }) => {
         />
         <button onClick={sendMessage}>Send</button>
       </div>
-    </div>
+    </Box>
   )
 }
 
