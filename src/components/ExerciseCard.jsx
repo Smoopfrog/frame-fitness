@@ -30,9 +30,9 @@ const ExerciseCard = ({ exercise, user }) => {
       <Typography className="exercise-card-name" sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
         {exercise.name}
       </Typography>
-      <img style={{ height: '310px' }} margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy"
+      <img margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy"
       />
-      <Stack direction="row">
+      <Stack direction="row" >
         <Box className="exercise-card-btn" >
           {exercise.bodyPart}
         </Box>
@@ -40,7 +40,7 @@ const ExerciseCard = ({ exercise, user }) => {
           {exercise.equipment}
         </Box>
         {user &&
-          <Button onClick={addExercise} className="exercise-card-add-btn" sx={{ '&:hover': { color: '#FF9700', border: '2px solid #FF9700', p: '4px 6px' } }}>
+          <Button onClick={addExercise} className="exercise-card-add-btn" sx={{ '&:hover': { color: '#FF9700', border: '2px solid #FF9700', p: '4px 6px' }, minWidth: 'min-content' }}>
             <AddIcon fontSize="large" />
           </Button>
         }
