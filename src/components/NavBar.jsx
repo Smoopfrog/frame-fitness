@@ -13,6 +13,7 @@ import axios from 'axios';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import io from "socket.io-client";
 
 const socket = io.connect("http://localhost:3001")
@@ -167,6 +168,9 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
             Welcome {user.username}!
           </Box>
           <a className='nav-elements' onClick={joinChat}>Chat</a>
+          <a className='chat-icon'>
+            <ChatBubbleOutlineIcon fontSize='large' onClick={joinChat} />
+          </a>
 
           <a className='nav-elements' onClick={getWorkout} >
             <FullScreenDialog title="My Workouts">
@@ -201,10 +205,6 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
 
               <a className='nav-elements-mobile' href="/" onClick={() => (closeMenu, signOut)}>Sign Out</a>
 
-            <a className='nav-elements-mobile' onClick={joinChat}>Chat</a>
-            {showChat &&  
-              <Chat user={user} socket={socket} />
-            }
           </ul>
 
           </Stack>
