@@ -49,14 +49,26 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
     const [click, setClick] = useState(false)
     const handleClick = () => setClick(!click);
     const closeMenu = () => setClick(false);
+    const [visible, setVisible] = useState(false)
     const [navbar, setNavbar] = useState(false);
+
+    const toggleVisible = () => {
+      const scrolled = document.documentElement.scrollTop;
+      if (scrolled > 300){
+        setVisible(true)
+      } 
+      else if (scrolled <= 300){
+        setVisible(false)
+      }
+    };
+    window.addEventListener('scroll', toggleVisible);
 
     const changeBackground = () => {
       window.scrollY >= 70 ? setNavbar(true) : setNavbar(false);
     }
     window.addEventListener('scroll', changeBackground);
 
-
+    
 
   return (
     <Stack
@@ -104,12 +116,14 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           marginRight='40px'
           marginTop='10px'
         >
-
           <ArrowCircleUpIcon 
           className={"toggle-up"}
+          style={{display: visible ? 'inline' : 'none'}}
           onClick={() => window.scrollTo({ top: 0 })} 
           fontSize='large' 
-          />
+          /> 
+
+     
           {/* Desktop/tablet view */}
           <a className='nav-elements' href="/#login" >
             <CustomizedDialogs title="Sign In Here" auth='Login' >
