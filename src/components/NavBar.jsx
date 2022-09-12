@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Stack, Typography, Badge } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
@@ -14,7 +14,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import io from "socket.io-client";
-import { useEffect } from 'react';
 
 const socket = io.connect("http://localhost:3001")
 
@@ -24,6 +23,8 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
   const [visible, setVisible] = useState(false)
   const [navbar, setNavbar] = useState(false);
   const [badgeNum, setBadgeNum] = useState(0);
+  const [progress, setProgress] = useState(0)
+  const [percentProgress, setPercentProgress] = useState(0)
 
   const signOut = () => setUser('')
   const handleClick = () => setClick(!click);
@@ -31,7 +32,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
   useEffect(() => {
     setBadgeNum(workout.length);
   }, [workout])
-  
+
   const joinChat = () => {
     if (user) {
       socket.emit("join", "chat")
@@ -190,11 +191,19 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           </a>
 
           <Badge badgeContent={badgeNum} color="primary">
-          <a className='nav-elements' >
-            <FullScreenDialog title="My Workouts" workout={workout} setWorkout={setWorkout} user={user}>
-            </FullScreenDialog>
-          </a>
-</Badge>
+            <a className='nav-elements' >
+              <FullScreenDialog
+                title="My Workouts"
+                workout={workout}
+                setWorkout={setWorkout}
+                user={user}
+                percentProgress={percentProgress}
+                setPercentProgress={setPercentProgress}
+                progress={progress}
+                setProgress={setProgress}>
+              </FullScreenDialog>
+            </a>
+          </Badge>
 
           <a className='nav-elements' onClick={signOut} >Sign Out</a>
           {showChat &&
@@ -214,8 +223,16 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
                 Welcome {user.username}!
               </Typography>
               <a className='nav-elements-mobile' >
-                <FullScreenDialog title="My Workouts" workout={workout} setWorkout={setWorkout} user={user}>
-                </FullScreenDialog>
+              <FullScreenDialog
+                title="My Workouts"
+                workout={workout}
+                setWorkout={setWorkout}
+                user={user}
+                percentProgress={percentProgress}
+                setPercentProgress={setPercentProgress}
+                progress={progress}
+                setProgress={setProgress}>
+              </FullScreenDialog>
               </a>
 
               <a className='nav-elements-mobile' href="/#exercises" onClick={closeMenu} >Exercises</a>

@@ -11,7 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog({ title, user, setUser, workout, setWorkout  }) {
+export default function FullScreenDialog({ title, user, setUser, workout, setWorkout, progress, setProgress, percentProgress, setPercentProgress }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -45,7 +45,15 @@ export default function FullScreenDialog({ title, user, setUser, workout, setWor
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Profile  workout={workout} setWorkout={setWorkout} user={user} />
+        <Profile 
+          workout={workout}
+          setWorkout={setWorkout}
+          user={user}
+          percentProgress={percentProgress}
+          setPercentProgress={setPercentProgress}
+          progress={progress}
+          setProgress={setProgress} 
+        />
       </Dialog>
     </div>
   );

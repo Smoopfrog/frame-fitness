@@ -6,15 +6,11 @@ import axios from 'axios';
 import '../styles/App.scss';
 import { useEffect } from 'react';
 
-const Profile = ({ user, workout, setWorkout }) => {
-  const [progress, setProgress] = useState(0)
-  const [precentProgress, setPrecentProgress] = useState(0)
-
+const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProgress, setPercentProgress }) => {
   useEffect(() => {
-
     let progressPercent = progress / workout.length * 100
-    setPrecentProgress(progressPercent)
-  }, [progress])
+    setPercentProgress(progressPercent)
+  }, [progress, workout])
   
   const deleteAllExercises = async () => {
     const params = {
@@ -57,13 +53,13 @@ const Profile = ({ user, workout, setWorkout }) => {
       >
         My Workout
       </Typography>
-      {precentProgress === 100 && 
+        {percentProgress === 100 && 
       <Typography
         sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
       >
         You're all done! Congratulations!
       </Typography>}
-      <LinearProgress variant="determinate" value={precentProgress} sx={{width: '500px', height:'50px'}} />
+      <LinearProgress variant="determinate" value={percentProgress} sx={{width: '500px', height:'50px'}} />
       <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
       {userExercises}
     </Stack>
