@@ -23,6 +23,9 @@ html {
     .menu-icon, .chat-icon, .toggle-up, .nav-elements, .nav-elements::before, .welcome-user, #name {
       color: #FFF;
     }
+    .nav-elements::before {
+      background-color: #FFF;
+    }
   }
 
   .nav-elements, .welcome-user {
