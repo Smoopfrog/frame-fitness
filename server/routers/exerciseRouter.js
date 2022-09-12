@@ -45,8 +45,6 @@ module.exports = (db) => {
     await db.query(`SELECT * FROM workouts WHERE user_id = $1 ORDER BY exerciseid ASC;`, [userId])
       .then(data => {
         const workout = data.rows;
-        console.log(workout);
-
         res.json({ workout });
       })
       .catch(err => {
