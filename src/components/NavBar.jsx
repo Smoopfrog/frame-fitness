@@ -224,7 +224,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
               </Typography>
               <a className='nav-elements-mobile' >
               <FullScreenDialog
-                title="My Workouts"
+                title="My Workout"
                 workout={workout}
                 setWorkout={setWorkout}
                 user={user}

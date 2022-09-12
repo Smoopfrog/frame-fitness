@@ -205,14 +205,25 @@ html {
       border: 2px solid #FF9700;
       padding: 4px 6px;
     };
+    &:active {
+      transform: scale(1.1, 1.1);  
+    }
   };
 
-  .exercise-card-disabled-btn {
+  .exercise-card-check-btn {
     background-color: #43a047;
     color: #FFF;
     margin-left: auto;
     margin-bottom: 5px;
     min-width: min-content;
+    &:hover { 
+      color: #43a047; 
+      border: 2px solid #43a047;
+      padding: 4px 6px;
+    };
+    &:active {
+      transform: scale(1.1, 1.1);  
+    }
   }
 
   .user-message {
@@ -239,8 +250,6 @@ html {
     background-color: #FFF;
     padding: 2px 10px;
     width: min-content; 
-    display: flex;
-    align-items: center;
     text-transform: capitalize;
     font-family: inherit;
   }
@@ -263,16 +272,27 @@ html {
     border: 2px solid #FF9700;
     border-radius: 5px;
     font-size: 20px;
-    padding: 12px 5px 8px 5px;
+    display: flex;
+    align-items: center;
+    padding: 9px 5px 5px 5px;
     text-transform: capitalize;
-    white-space: nowrap;
+    text-overflow: clip;
+    text-align: center;
   }
 
   .profile-card-delete-btn {
     background-color: red;
-    margin-left: 10px;
+    margin-left: auto;
     color: white;
     margin-bottom: 5px;
+    min-width: min-content;
+    &:hover { 
+      background: white; 
+      color: red; 
+      border: 2px solid red;
+      padding: 4px 6px;
+      background-color: #FFF;
+    }
   }
 
   .profile-exercises {
@@ -302,9 +322,14 @@ html {
 
   .quantity-btn-save {
     color: white;
-    background-color:green ;
+    background-color:#43a047;
     border: 1px solid #00A5B8;
+    &:hover {
+      background-color: #FFF;
+      color: #43a047;
+    }
   }
+
   .quantity-counter {
     width: 50px;
     display: flex;
@@ -589,29 +614,17 @@ html {
 }
 
 @media screen and (max-width: 450px) {
-  .exercise-card {
+  .exercise-card, .profile-card {
     height: auto;
     width: 300px;
     img {
       width: 250px;
       height: auto;
     }
-    .exercise-card-btn {
+    .exercise-card-btn, .profile-card-btn {
       font-size: 15px;
       padding: 7px 3px 3px 3px;
       margin-right: 5px;
-    }
-  }
-  .profile-card {
-    height: auto;
-    width: 300px;
-    img {
-      width: 250px;
-      height: auto;
-    }
-    .profile-card-btn {
-      font-size: 15px;
-      padding-top: 13.5px;
     }
   }
 }
