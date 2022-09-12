@@ -20,7 +20,7 @@ html {
 
   .navbar.active {
     background: linear-gradient(90deg, #FF9700 0%, #FF9700 100%);
-    .menu-icon, .chat-icon, .toggle-up, .nav-elements, .nav-elements::before, .welcome-user, #name {
+    .menu-icon, .chat-icon, .toggle-up, .nav-elements, .nav-elements::before, .welcome-user, #name, #badge-mobile {
       color: #FFF;
     }
     .nav-elements::before {
@@ -348,6 +348,12 @@ html {
   }
 }
 
+@media screen and (max-width: 375px) {
+  #toggle-top {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width:750px) {
   .footer-img {
     height: 200px;
@@ -364,22 +370,19 @@ html {
   .footer-img {
     height: 300px;
   }
-}
-
-@media screen and (min-width: 1200px) {
-  .nav-elements-mobile, .nav-menu {
+  .nav-elements-mobile, .nav-menu, .menu-icon, #badge-mobile {
     display: none;
   }
-   .menu-icon {
-    display: none;
-   }
-   .chat-icon {
+   .chat-icon,#badge-mobile {
     display: none;
     color: '#FF9700'
    }
 }
 
 @media screen and (max-width: 1200px) {
+  #badge-desktop {
+    display: none;
+  }
   .menu-icon {
     display: flex;
     position: absolute;
@@ -391,7 +394,7 @@ html {
     color: #FF9700;
   }
 
-  .chat-icon {
+  .chat-icon, #badge-mobile {
     display: 'flex';
     margin-top: 10px;
     margin-left: 10px;
@@ -427,6 +430,10 @@ html {
     display:none;
   }
 
+  #badge-mobile {
+    color: #FF9700;
+    margin-top: 0;
+  }
 
   .nav-elements-mobile {
     display: block;

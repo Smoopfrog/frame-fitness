@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import io from "socket.io-client";
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
 const socket = io.connect("http://localhost:3001")
 
@@ -109,6 +110,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
         >
 
           <ArrowCircleUpIcon
+            id='toggle-top'
             className={"toggle-up"}
             style={{ display: visible ? 'inline' : 'none' }}
             onClick={() => window.scrollTo({ top: 0 })}
@@ -176,6 +178,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
         >
 
           <ArrowCircleUpIcon
+            id='toggle-top'
             className={"toggle-up"}
             style={{ display: visible ? 'inline' : 'none' }}
             onClick={() => window.scrollTo({ top: 0 })}
@@ -191,7 +194,7 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
             <ChatBubbleOutlineIcon fontSize='large' onClick={joinChat} />
           </a>
 
-          <Badge badgeContent={badgeNum} color="primary">
+          <Badge badgeContent={badgeNum} color="success" id='badge-desktop'>          
             <a className='nav-elements' >
               <FullScreenDialog
                 title="My Workouts"
@@ -212,6 +215,21 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
           }
 
           {/* Mobile view */}
+          <Badge badgeContent={badgeNum} color="success" id='badge-mobile' style={{top: '5px'}} >          
+            <a >
+              <FullScreenDialog
+                title={<FitnessCenterIcon style={{fontSize: '2rem'}} />}
+                workout={workout}
+                setWorkout={setWorkout}
+                user={user}
+                percentProgress={percentProgress}
+                setPercentProgress={setPercentProgress}
+                progress={progress}
+                setProgress={setProgress}>
+              </FullScreenDialog>
+            </a>
+          </Badge>
+
           <Stack ml='30px' direction='row' mr='40px'>
 
             <Box className='menu-icon' onClick={handleClick}>
