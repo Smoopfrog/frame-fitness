@@ -12,6 +12,8 @@ CREATE TABLE workouts (
   equipment VARCHAR(30),
   exerciseName VARCHAR(50),
   gifUrl VARCHAR(60),
-  targetGroup varChar(60)
+  targetGroup varChar(60),
+  totalReps int DEFAULT 0,
+  totalSets int DEFAULT 0
 );
 

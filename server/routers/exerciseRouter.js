@@ -13,14 +13,14 @@ module.exports = (db) => {
     const bodyPart = req.body.exercise.bodyPart
 
     db.query(`INSERT INTO workouts (user_id, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-      [userId, exerciseId, bodyPart, equipment, exerciseName, gifUrl, target ]);
+      [userId, exerciseId, bodyPart, equipment, exerciseName, gifUrl, target]);
 
     res.send(req.body)
   })
-  
-  router.get('/exercises', (req, res) =>{
+
+  router.get('/exercises', (req, res) => {
     const userId = req.query.userId
-    
+
     db.query(`SELECT * FROM workouts WHERE user_id = $1`, [userId])
       .then(data => {
         const workout = data.rows;
@@ -32,6 +32,24 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   })
+
+  router.delete('/exercises', async (req, res) => {
+    const userId = req.query.userId
+    const exerciseId = req.query.exerciseId
+
+    await db.query(`DELETE FROM workouts WHERE user_id = $1 AND exerciseid = $2;`, [userId, exerciseId])
+
+    await db.query(`SELECT * FROM workouts WHERE user_id = $1;`, [userId])
+      .then(data => {
+        const workout = data.rows;
+        res.json({ workout });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  })
+
   return router;
 };
- 
