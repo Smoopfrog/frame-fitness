@@ -81,7 +81,7 @@ const ExerciseCard = ({ exercise, user, workout, setWorkout }) => {
         </Box>
         {user &&
           (click ?
-            <Button onClick={() => {handleClick(params); }}  className="exercise-card-disabled-btn" >
+            <Button onClick={() => {handleClick(params); }}  className="exercise-card-check-btn" >
               <CheckIcon fontSize='large' />
             </Button> :
 
