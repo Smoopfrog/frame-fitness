@@ -27,7 +27,7 @@ const ExerciseCard = ({ exercise, user }) => {
   const handleClick = () => setClick(!click);
 
   return (
-    <Box className="exercise-card"
+    <Box className='exercise-card'
       sx={{ '&:hover': { boxShadow: '0 0 3px 3px #FF9700', transform: 'scale(1.02, 1.02)', transition: 'transform 0.2s ease-in-out' } }}
     >
       <Typography className="exercise-card-name" sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
@@ -43,7 +43,6 @@ const ExerciseCard = ({ exercise, user }) => {
           {exercise.equipment}
         </Box>
         {user &&
-
           (click ? 
             <Button disabled className="exercise-card-disabled-btn" >
               <CheckIcon fontSize='large' />
@@ -53,8 +52,6 @@ const ExerciseCard = ({ exercise, user }) => {
               <AddIcon fontSize='large' />
             </Button>)
         }
-     
-     
       </Stack>
     </Box>
 
