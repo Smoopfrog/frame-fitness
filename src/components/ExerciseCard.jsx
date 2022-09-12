@@ -16,7 +16,6 @@ const ExerciseCard = ({ exercise, user }) => {
 
     axios.post('/exercises', data)
       .then(function (response) {
-        
       })
       .catch(function (error) {
         console.log(error);
@@ -26,7 +25,6 @@ const ExerciseCard = ({ exercise, user }) => {
 
   const [click, setClick] = useState(false)
   const handleClick = () => setClick(!click);
-
 
   return (
     <Box className="exercise-card"
@@ -45,17 +43,17 @@ const ExerciseCard = ({ exercise, user }) => {
           {exercise.equipment}
         </Box>
         {user &&
-        
-        click ? 
-          <Button disabled className="exercise-card-disabled-btn" >
-            <CheckIcon fontSize='large' />
-          </Button> :
-        
-          <Button onClick={() => { addExercise(); handleClick(); }}   className="exercise-card-add-btn" >
-            <AddIcon fontSize='large' />
-          </Button>
-        
-      }
+
+          (click ? 
+            <Button disabled className="exercise-card-disabled-btn" >
+              <CheckIcon fontSize='large' />
+            </Button> :
+
+            <Button onClick={() => { addExercise(); handleClick(); }}   className="exercise-card-add-btn" >
+              <AddIcon fontSize='large' />
+            </Button>)
+        }
+     
      
       </Stack>
     </Box>
