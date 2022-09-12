@@ -181,6 +181,8 @@ html {
     align-items: center;
     padding: 9px 5px 5px 5px;
     text-transform: capitalize;
+    text-overflow: clip;
+    text-align: center;
   }
 
   .exercise-card-add-btn {
@@ -189,7 +191,6 @@ html {
     color: #FFF;
     font-size: 24px;
     margin-bottom: 5px;
-    bottom: 0;
     min-width: min-content;
     &:hover { 
       color: #FF9700; 
@@ -203,7 +204,6 @@ html {
     color: #FFF;
     margin-left: auto;
     margin-bottom: 5px;
-    bottom: 0;
     min-width: min-content;
   }
 
@@ -584,6 +584,8 @@ html {
     }
     .exercise-card-btn {
       font-size: 15px;
+      padding: 7px 3px 3px 3px;
+      margin-right: 5px;
     }
   }
   .profile-card {
