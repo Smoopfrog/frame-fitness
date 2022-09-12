@@ -8,7 +8,7 @@ export const HeroBanner = () => {
   return (
     <Stack align='center' >
       <Typography color='#FF9700' fontWeight='bolder' 
-        sx={{fontSize: {lg: '60px', md: '45px', xs: '35px'}}}
+        sx={{fontSize: {lg: '60px', md: '45px', xs: '30px'}}}
         width='100vw' fontFamily='Calibre' m='150px 0' backgroundColor='white' pt='10px' mb='0'>
         Lift, Breathe, Build Your Frame
       </Typography>
@@ -16,8 +16,8 @@ export const HeroBanner = () => {
       <Box sx={{backgroundImage: `url(${Banner})`,
       backgroundRepeat: 'no-repeat', 
       backgroundPosition: 'center top',
-      width: '100vw',
-      height: { lg: '700px', md: '500px', xs: '300px'},
+      width: {sm: '100vw', xs: '95vw'},
+      height: { lg: '700px', md: '500px', sm: '400px', xs: '300px'},
       justifyContent: 'center',
       backgroundSize: 'contain',
       }} />

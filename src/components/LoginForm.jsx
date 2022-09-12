@@ -36,7 +36,7 @@ const LoginForm = ({ setUser }) => {
 
   return (
     <Grid >
-      <Paper elevation={0} style={{ padding: '0 10px 5px', width: '250px' }}>
+      <Paper elevation={0} style={{ padding: '0 10px 5px', width: 'fit-content' }}>
         <Grid align='center' mb='10px'>
           <Typography variant='caption'>Enter your username and password</Typography>
         </Grid>

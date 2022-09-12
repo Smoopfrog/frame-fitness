@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
+import CheckIcon from '@mui/icons-material/Check';
 import '../styles/App.scss';
 const axios = require('axios')
 
@@ -15,7 +16,6 @@ const ExerciseCard = ({ exercise, user }) => {
 
     axios.post('/exercises', data)
       .then(function (response) {
-        alert('added exercise')
       })
       .catch(function (error) {
         console.log(error);
@@ -23,16 +23,19 @@ const ExerciseCard = ({ exercise, user }) => {
       });
   };
 
+  const [click, setClick] = useState(false)
+  const handleClick = () => setClick(!click);
+
   return (
-    <Box className="exercise-card"
-      sx={{ '&:hover': { boxShadow: '0 0 3px 5px #FF9700' } }}
+    <Box className='exercise-card'
+      sx={{ '&:hover': { boxShadow: '0 0 3px 3px #FF9700', transform: 'scale(1.02, 1.02)', transition: 'transform 0.2s ease-in-out' } }}
     >
       <Typography className="exercise-card-name" sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
         {exercise.name}
       </Typography>
-      <img style={{ height: '310px' }} margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy"
+      <img margin="inherit" src={exercise.gifUrl} alt={exercise.name} loading="lazy"
       />
-      <Stack direction="row">
+      <Stack direction="row" >
         <Box className="exercise-card-btn" >
           {exercise.bodyPart}
         </Box>
@@ -40,11 +43,15 @@ const ExerciseCard = ({ exercise, user }) => {
           {exercise.equipment}
         </Box>
         {user &&
-          <Button onClick={addExercise} className="exercise-card-add-btn" sx={{ '&:hover': { color: '#FF9700', border: '2px solid #FF9700', p: '4px 6px' } }}>
-            <AddIcon fontSize="large" />
-          </Button>
-        }
+          (click ? 
+            <Button disabled className="exercise-card-disabled-btn" >
+              <CheckIcon fontSize='large' />
+            </Button> :
 
+            <Button onClick={() => { addExercise(); handleClick(); }}   className="exercise-card-add-btn" >
+              <AddIcon fontSize='large' />
+            </Button>)
+        }
       </Stack>
     </Box>
 

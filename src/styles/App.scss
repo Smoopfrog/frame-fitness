@@ -4,14 +4,33 @@
 body,
 html {
   font-family: 'Calibre', sans-serif;
-  background-color: white;
+  background-color: #FFF;
   overflow-x: hidden;
   width: 100vw;
   scroll-behavior: smooth; 
 
+  .navbar {
+    background-color: #FFF;
+  }
+
+  #name {
+    color: #FF9700;
+    text-decoration: none;
+  }
+
+  .navbar.active {
+    background: linear-gradient(90deg, #FF9700 0%, #FF9700 100%);
+    .menu-icon, .chat-icon, .toggle-up, .nav-elements, .nav-elements::before, .welcome-user, #name {
+      color: #FFF;
+    }
+    .nav-elements::before {
+      background-color: #FFF;
+    }
+  }
+
   .nav-elements, .welcome-user {
     position: relative;
-    color: #FFF;
+    color: #FF9700;
     text-decoration: none;
     &:hover {
       cursor: pointer;
@@ -19,10 +38,10 @@ html {
   }
 
   .toggle-up {
-    color: #FFF;
+    color: #FF9700;
     padding-bottom: 7px;
     &:active {
-      transform: scale(1.2, 1.2) !important;
+      transform: scale(1.15, 1.15) !important;
     };
   }
   
@@ -34,7 +53,7 @@ html {
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: #FFF;
+    background-color: #FF9700;
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.3s ease;
@@ -141,7 +160,12 @@ html {
     background-color: #FFF;
     padding: 2px 10px;
     width: min-content;  
-  }
+    &:hover { 
+      box-shadow: 0 0 3px 3px #FF9700;
+      transform: scale(1.02, 1.02); 
+      transition: transform 0.2s ease-in-out;
+    }
+  }  
 
   .exercise-card-name {
     text-align: center;
@@ -161,17 +185,34 @@ html {
     border: 2px solid #FF9700;
     border-radius: 5px;
     font-size: 20px;
-    padding: 12px 5px 8px 5px;
+    display: flex;
+    align-items: center;
+    padding: 9px 5px 5px 5px;
     text-transform: capitalize;
+    text-overflow: clip;
+    text-align: center;
   }
 
   .exercise-card-add-btn {
     background-color: #FF9700;
     margin-left: auto;
-    color: white;
+    color: #FFF;
     font-size: 24px;
     margin-bottom: 5px;
-    bottom: 0;
+    min-width: min-content;
+    &:hover { 
+      color: #FF9700; 
+      border: 2px solid #FF9700;
+      padding: 4px 6px;
+    };
+  };
+
+  .exercise-card-disabled-btn:disabled {
+    background-color: #43a047;
+    color: #FFF;
+    margin-left: auto;
+    margin-bottom: 5px;
+    min-width: min-content;
   }
 
   .user-message {
@@ -186,8 +227,10 @@ html {
   .profile {
     width: 100vw;
     margin-top: 100px;
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-family: 'Calibre';
   }
 
   .profile-card {
@@ -196,8 +239,10 @@ html {
     background-color: #FFF;
     padding: 2px 10px;
     width: min-content; 
-    justify-content: center;
+    display: flex;
     align-items: center;
+    text-transform: capitalize;
+    font-family: inherit;
   }
 
   .profile-card-name {
@@ -208,6 +253,7 @@ html {
     padding-bottom: 10px;
     text-transform: capitalize;
     height: 82px;
+    font-family: inherit;
   }
 
   .profile-card-btn {
@@ -238,7 +284,9 @@ html {
     display: flex;
     justify-content: center;
     color: #FF9700;
-    font-size: 26px;
+    margin-top: 10px;
+    font-family: inherit;
+    line-height: normal;
   }
 
   .quantity-stack {
@@ -285,16 +333,20 @@ html {
   }
 }
 
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
   .nav-elements-mobile, .nav-menu {
     display: none;
   }
    .menu-icon {
     display: none;
    }
+   .chat-icon {
+    display: none;
+    color: '#FF9700'
+   }
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1200px) {
   .menu-icon {
     display: flex;
     position: absolute;
@@ -303,7 +355,18 @@ html {
     right: 20px;
     transform: translate(-100%, 60%);
     cursor: pointer;
-    color: #FFF;
+    color: #FF9700;
+  }
+
+  .chat-icon {
+    display: 'flex';
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #FF9700;
+    &:active {
+      transform: scale(1.15, 1.15) !important;
+    };
   }
 
   .nav-menu {
@@ -378,22 +441,25 @@ html {
 }
 .chat-window .chat-header {
   height: 45px;
-  border-radius: 6px;
-  background: #263238;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #00A5B8;
   position: relative;
   cursor: pointer;
 }
 .chat-window .chat-header p {
-  display: block;
-  padding: 0 1em 0 2em;
   color: #fff;
-  font-weight: 700;
-  line-height: 45px;
+  font-size: 20px;
+  font-weight: bolder;
+  line-height: normal;
 }
 
 .chat-window .chat-body {
   height: calc(450px - (45px + 70px));
-  border: 1px solid #263238;
+  border: 2px solid #00A5B8;
   background: #fff;
 
   position: relative;
@@ -404,6 +470,7 @@ html {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+
 
 .chat-window .chat-body .message-container::-webkit-scrollbar {
   display: none;
@@ -426,8 +493,8 @@ html {
   align-items: center;
   margin-right: 5px;
   margin-left: 5px;
-  padding-right: 5px;
-  padding-left: 5px;
+  padding-right: 9px;
+  padding-top: 8px;
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -457,6 +524,7 @@ html {
 #other .message-meta {
   justify-content: flex-end;
   margin-right: 5px;
+  margin-top: 4px;
 }
 
 .message-meta #author {
@@ -471,23 +539,24 @@ html {
 
 .chat-window .chat-footer {
   height: 40px;
-  border: 1px solid #263238;
   border-top: none;
   display: flex;
-
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .chat-window .chat-footer input {
-  height: 100%;
   width: 100%;
   flex: 85%;
   border: 0;
-  padding: 0 0.7em;
-  font-size: 1em;
-  border-right: 1px dotted #607d8b;
-
+  padding: 1em 0.7em 0.7em 0.7em;
+  font-size: 0.8em;
   outline: none;
-  font-family: "Open Sans", sans-serif;
+  font-family: inherit;
+  caret-color: #FF9700;
+  border-bottom: 2px solid #00A5B8;
+  border-left: 2px solid #00A5B8;
+  border-bottom-left-radius: 5px;
 }
 
 .chat-window .chat-footer button {
@@ -495,14 +564,48 @@ html {
   display: grid;
   place-items: center;
   cursor: pointer;
-  flex: 15%;
-  height: 100%;
-  background: white;
+  border-bottom-right-radius: 3px;
+  background: #00A5B8;
   outline: none;
   font-size: 25px;
-  color: black;
+  font-family: inherit;
+  padding-top: 8px;
+  color: #FFF;
 }
 
-.chat-window .chat-footer button:hover {
-  color: #43a047;
+.chat-window .chat-footer button {
+  &:hover {
+    background-color: #43a047;
+  };
+  &:active {
+    transform: scale(1.05, 1.05);
+  };
+}
+
+@media screen and (max-width: 450px) {
+  .exercise-card {
+    height: auto;
+    width: 300px;
+    img {
+      width: 250px;
+      height: auto;
+    }
+    .exercise-card-btn {
+      font-size: 15px;
+      padding: 7px 3px 3px 3px;
+      margin-right: 5px;
+    }
+  }
+  .profile-card {
+    height: auto;
+    width: 300px;
+    img {
+      width: 250px;
+      height: auto;
+    }
+    .profile-card-btn {
+      font-size: 15px;
+      padding-top: 13.5px;
+    }
+  }
 }

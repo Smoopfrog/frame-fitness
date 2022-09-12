@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <Stack direction='row' sx={{ height: '300px', bottom: '0'}} alignItems='center'  justifyContent='center'>
       <img className='footer-img' src={Break} alt="break" style={{objectFit: 'contain'}}/>
-      <Typography fontFamily='Calibre' sx={{fontSize: {lg: '50px', md: '40px', xs: '30px'}}} fontWeight='bolder' lineHeight="normal" color='#FF9700' mr='10px' >Tired? <br /> Take a break</Typography>
+      <Typography fontFamily='Calibre' mr='20px' sx={{fontSize: {lg: '50px', md: '40px', xs: '25px'}}} fontWeight='bolder' lineHeight="normal" color='#FF9700' >Tired? <br /> Take a break</Typography>
     </Stack>
   )
 }

@@ -11,7 +11,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function FullScreenDialog({ title }) {
+export default function FullScreenDialog({ title, user, setUser, workout, setWorkout  }) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -45,7 +45,7 @@ export default function FullScreenDialog({ title }) {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Profile />
+        <Profile  workout={workout} setWorkout={setWorkout} user={user} />
       </Dialog>
     </div>
   );
