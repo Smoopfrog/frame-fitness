@@ -47,7 +47,7 @@ const Profile = ({ user, setUser, workout, setWorkout }) => {
     <Stack className='profile' spacing={3}>
       <Typography
         sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
-      >My Profile
+      >{user.username}'s Profile
       </Typography>
       {userExercises}
     </Stack>
