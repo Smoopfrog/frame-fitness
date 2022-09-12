@@ -186,10 +186,25 @@ html {
   .exercise-card-add-btn {
     background-color: #FF9700;
     margin-left: auto;
-    color: white;
+    color: #FFF;
     font-size: 24px;
     margin-bottom: 5px;
     bottom: 0;
+    min-width: min-content;
+    &:hover { 
+      color: #FF9700; 
+      border: 2px solid #FF9700;
+      padding: 4px 6px;
+    };
+  };
+
+  .exercise-card-disabled-btn:disabled {
+    background-color: #43a047;
+    color: #FFF;
+    margin-left: auto;
+    margin-bottom: 5px;
+    bottom: 0;
+    min-width: min-content;
   }
 
   .user-message {

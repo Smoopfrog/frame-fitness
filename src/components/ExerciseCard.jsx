@@ -1,6 +1,7 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
+import CheckIcon from '@mui/icons-material/Check';
 import '../styles/App.scss';
 const axios = require('axios')
 
@@ -15,13 +16,17 @@ const ExerciseCard = ({ exercise, user }) => {
 
     axios.post('/exercises', data)
       .then(function (response) {
-        alert('added exercise')
+        
       })
       .catch(function (error) {
         console.log(error);
         alert('Username taken')
       });
   };
+
+  const [click, setClick] = useState(false)
+  const handleClick = () => setClick(!click);
+
 
   return (
     <Box className="exercise-card"
@@ -40,11 +45,18 @@ const ExerciseCard = ({ exercise, user }) => {
           {exercise.equipment}
         </Box>
         {user &&
-          <Button onClick={addExercise} className="exercise-card-add-btn" sx={{ '&:hover': { color: '#FF9700', border: '2px solid #FF9700', p: '4px 6px' }, minWidth: 'min-content' }}>
-            <AddIcon fontSize="large" />
+        
+        click ? 
+          <Button disabled className="exercise-card-disabled-btn" >
+            <CheckIcon fontSize='large' />
+          </Button> :
+        
+          <Button onClick={() => { addExercise(); handleClick(); }}   className="exercise-card-add-btn" >
+            <AddIcon fontSize='large' />
           </Button>
-        }
-
+        
+      }
+     
       </Stack>
     </Box>
 
