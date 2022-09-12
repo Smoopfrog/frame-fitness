@@ -1,30 +1,67 @@
 import { Box, Stack, Typography, Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddIcon from '@mui/icons-material/Add';
 import CheckIcon from '@mui/icons-material/Check';
 import '../styles/App.scss';
 const axios = require('axios')
 
 
-const ExerciseCard = ({ exercise, user }) => {
+const ExerciseCard = ({ exercise, user, workout, setWorkout }) => {
+  const [click, setClick] = useState(false)
 
-  const addExercise = () => {
-    const data = {
-      userId: user.id,
-      exercise: exercise
-    }
+  const data = {
+    userId: user.id,
+    exercise: exercise
+  }
 
-    axios.post('/exercises', data)
+  const params = {
+    userId: user.id,
+    exerciseId: exercise.id
+  };
+
+  const addExercise = async (data) => {
+    await axios.post('/exercises', data)
       .then(function (response) {
+        setWorkout(response.data.workout)
       })
       .catch(function (error) {
         console.log(error);
-        alert('Username taken')
       });
   };
 
-  const [click, setClick] = useState(false)
-  const handleClick = () => setClick(!click);
+  const deleteExercise = async (params) => {
+    await axios.delete('/exercises', { params })
+      .then(function (response) {
+        setWorkout(response.data.workout)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
+  const handleClick = (data) => {
+    if(click) {
+      deleteExercise(data)
+    } else {
+      addExercise(data)
+    }
+    setClick(!click)
+  };
+
+  const inWorkout = workout.find(element => {
+    if (element.exerciseid == exercise.id) {
+      return true
+    }
+  })
+
+
+  useEffect(() => {
+    if (inWorkout) {
+      setClick(true)
+    } else (
+      setClick(false)
+    )
+  }, [workout, exercise] );
 
   return (
     <Box className='exercise-card'
@@ -43,18 +80,17 @@ const ExerciseCard = ({ exercise, user }) => {
           {exercise.equipment}
         </Box>
         {user &&
-          (click ? 
-            <Button disabled className="exercise-card-disabled-btn" >
+          (click ?
+            <Button onClick={() => {handleClick(params); }}  className="exercise-card-disabled-btn" >
               <CheckIcon fontSize='large' />
             </Button> :
 
-            <Button onClick={() => { addExercise(); handleClick(); }}   className="exercise-card-add-btn" >
+            <Button onClick={() => {handleClick(data); }} className="exercise-card-add-btn" >
               <AddIcon fontSize='large' />
             </Button>)
         }
       </Stack>
     </Box>
-
   )
 }
 

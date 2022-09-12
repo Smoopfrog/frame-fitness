@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 module.exports = (db) => {
-  router.post('/exercises', (req, res) => {
+  router.post('/exercises', async (req, res) => {
     const userId = req.body.userId;
     const exerciseId = req.body.exercise.id
     const equipment = req.body.exercise.equipment
@@ -12,10 +12,19 @@ module.exports = (db) => {
     const gifUrl = req.body.exercise.gifUrl
     const bodyPart = req.body.exercise.bodyPart
 
-    db.query(`INSERT INTO workouts (user_id, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
+    await db.query(`INSERT INTO workouts (user_id, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
       [userId, exerciseId, bodyPart, equipment, exerciseName, gifUrl, target]);
 
-    res.send(req.body)
+    await db.query(`SELECT * FROM workouts WHERE user_id = $1;`, [userId])
+      .then(data => {
+        const workout = data.rows;
+        res.send({ workout });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   })
 
   router.get('/exercises', (req, res) => {
@@ -36,8 +45,11 @@ module.exports = (db) => {
   router.delete('/exercises', async (req, res) => {
     const userId = req.query.userId
     const exerciseId = req.query.exerciseId
-
-    await db.query(`DELETE FROM workouts WHERE user_id = $1 AND exerciseid = $2;`, [userId, exerciseId])
+    if (exerciseId) {
+      await db.query(`DELETE FROM workouts WHERE user_id = $1 AND exerciseid = $2;`, [userId, exerciseId])
+    } else {
+      await db.query(`DELETE FROM workouts WHERE user_id = $1;`, [userId])
+    }
 
     await db.query(`SELECT * FROM workouts WHERE user_id = $1;`, [userId])
       .then(data => {

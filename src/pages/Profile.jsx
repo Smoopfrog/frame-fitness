@@ -1,28 +1,24 @@
-import { Box, Typography, Button, ButtonGroup } from '@mui/material'
+import { Typography, Button } from '@mui/material'
 import { Stack } from '@mui/system';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProfileExercise from '../components/ProfileExercise';
 import axios from 'axios';
 import '../styles/App.scss';
 
+const Profile = ({ user, workout, setWorkout }) => {
+  const deleteAllExercises = async () => {
+    const params = {
+      userId: user.id,
+    };
 
-const Profile = ({ user, setUser, workout, setWorkout }) => {
-  const getWorkout = async () => {
-    const params = { userId: user.id };
-
-    await axios.get('/exercises', { params })
+    await axios.delete('/exercises', { params })
       .then(function (response) {
-        console.log(response.data.workout)
         setWorkout(response.data.workout)
       })
       .catch(function (error) {
         console.log(error);
       });
-  };
-
-  useEffect(() => {
-    getWorkout()
-  }, [])
+  }
 
   const userExercises = workout.map(exercise => {
     return (
@@ -43,12 +39,13 @@ const Profile = ({ user, setUser, workout, setWorkout }) => {
   })
 
   return (
-
     <Stack className='profile' spacing={3}>
       <Typography
         sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
-      >{user.username}'s Profile
+      >
+        My Workout
       </Typography>
+      <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
       {userExercises}
     </Stack>
   )
