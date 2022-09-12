@@ -36,8 +36,11 @@ module.exports = (db) => {
   router.delete('/exercises', async (req, res) => {
     const userId = req.query.userId
     const exerciseId = req.query.exerciseId
-
-    await db.query(`DELETE FROM workouts WHERE user_id = $1 AND exerciseid = $2;`, [userId, exerciseId])
+    if (exerciseId) {
+      await db.query(`DELETE FROM workouts WHERE user_id = $1 AND exerciseid = $2;`, [userId, exerciseId])
+    } else {
+      await db.query(`DELETE FROM workouts WHERE user_id = $1;`, [userId])
+    }
 
     await db.query(`SELECT * FROM workouts WHERE user_id = $1;`, [userId])
       .then(data => {

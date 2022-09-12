@@ -20,6 +20,22 @@ const Profile = ({ user, setUser, workout, setWorkout }) => {
       });
   };
 
+
+  const deleteAllExercises = async () => {
+    const params = {
+      userId: user.id,
+    };
+
+    await axios.delete('/exercises', { params })
+      .then(function (response) {
+        console.log(response.data)
+        setWorkout(response.data.workout)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   useEffect(() => {
     getWorkout()
   }, [])
@@ -43,12 +59,12 @@ const Profile = ({ user, setUser, workout, setWorkout }) => {
   })
 
   return (
-
     <Stack className='profile' spacing={3}>
       <Typography
         sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
-      >My Profile
-      </Typography>
+      >My Workout
+      </Typography> 
+      <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
       {userExercises}
     </Stack>
   )

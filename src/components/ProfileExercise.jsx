@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import All from '../assets/all.jpg';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -13,9 +12,9 @@ const ProfileExercise = ({ setWorkout, exerciseId, bodyPart, equipment, exercise
   const [counter, setCounter] = useState(totalSets);
   const [counterRep, setCounterRep] = useState(totalReps);
   const [selected, setSelected] = useState(false);
-  console.log('userId', userId)
+
   const deleteExercise = async () => {
-    const params = { 
+    const params = {
       userId: userId,
       exerciseId: exerciseId
     };
@@ -67,13 +66,13 @@ const ProfileExercise = ({ setWorkout, exerciseId, bodyPart, equipment, exercise
           <Typography className='quantity-name' >Sets</Typography>
           <ButtonGroup size="large" aria-label="outlined button group" >
 
-            <Button className='quantity-btn' onClick={() => { setCounter(counter + 1) }}><AddIcon /></Button>
-
-            {<Box className='quantity-counter' >{counter}</Box>}
-
             {<Button className='quantity-btn' disabled={counter <= 0} onClick={() => {
               setCounter(counter - 1)
             }}><RemoveIcon /></Button>}
+
+            {<Box className='quantity-counter' >{counter}</Box>}
+
+            <Button className='quantity-btn' onClick={() => { setCounter(counter + 1) }}><AddIcon /></Button>
 
           </ButtonGroup>
         </Box>
@@ -82,13 +81,13 @@ const ProfileExercise = ({ setWorkout, exerciseId, bodyPart, equipment, exercise
           <Typography className='quantity-name' mt='10px'>Reps</Typography>
           <ButtonGroup size="large" aria-label="small outlined button group">
 
-            <Button className='quantity-btn' onClick={() => { setCounterRep(counterRep + 1) }}><AddIcon /></Button>
-
-            {<Box className='quantity-counter' >{counterRep}</Box>}
-
             {<Button className='quantity-btn' disabled={counterRep <= 0} onClick={() => {
               setCounterRep(counterRep - 1)
             }}><RemoveIcon /></Button>}
+
+            {<Box className='quantity-counter' >{counterRep}</Box>}
+
+            <Button className='quantity-btn' onClick={() => { setCounterRep(counterRep + 1) }}><AddIcon /></Button>
 
           </ButtonGroup>
         </Box>
