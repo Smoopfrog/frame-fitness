@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
@@ -8,10 +8,47 @@ import { Box, Stack, Button, Typography, ButtonGroup } from '@mui/material';
 import axios from 'axios';
 
 
-const ProfileExercise = ({ setWorkout, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup, userId, totalReps, totalSets }) => {
+const ProfileExercise = ({ workout, setWorkout, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup, userId, totalReps, totalSets }) => {
   const [counter, setCounter] = useState(totalSets);
   const [counterRep, setCounterRep] = useState(totalReps);
   const [selected, setSelected] = useState(false);
+  const [showSetSaveButton, setShowSetSaveButton] = useState(false)
+  const [showRepSaveButton, setShowRepSaveButton] = useState(false)
+
+
+  useEffect(() => {
+    if (totalSets !== counter) {
+      setShowSetSaveButton(true)
+    } else {
+      setShowSetSaveButton(false)
+    }
+  }, [counter, workout])
+
+  useEffect(() => {
+    if (totalReps !== counterRep) {
+      setShowRepSaveButton(true)
+    } else {
+      setShowRepSaveButton(false)
+    }
+  }, [counterRep, workout])
+
+  const updateExercise = async () => {
+    const data = {
+      userId: userId,
+      exerciseId: exerciseId,
+      totalSets: counter,
+      totalReps: counterRep
+    }
+
+    await axios.put('/exercises', data)
+      .then(function (response) {
+        console.log(response.data)
+        setWorkout(response.data.workout)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   const deleteExercise = async () => {
     const params = {
@@ -74,6 +111,7 @@ const ProfileExercise = ({ setWorkout, exerciseId, bodyPart, equipment, exercise
 
             <Button className='quantity-btn' onClick={() => { setCounter(counter + 1) }}><AddIcon /></Button>
 
+            {showSetSaveButton && <Button className='quantity-btn-save' onClick={updateExercise}>Save</Button>}
           </ButtonGroup>
         </Box>
 
@@ -88,6 +126,8 @@ const ProfileExercise = ({ setWorkout, exerciseId, bodyPart, equipment, exercise
             {<Box className='quantity-counter' >{counterRep}</Box>}
 
             <Button className='quantity-btn' onClick={() => { setCounterRep(counterRep + 1) }}><AddIcon /></Button>
+
+            {showRepSaveButton && <Button className='quantity-btn-save' onClick={updateExercise}>Save</Button>}
 
           </ButtonGroup>
         </Box>

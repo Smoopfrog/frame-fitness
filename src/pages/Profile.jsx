@@ -34,6 +34,7 @@ const Profile = ({ user, workout, setWorkout }) => {
         totalSets={exercise.totalsets}
         userId={exercise.user_id}
         setWorkout={setWorkout}
+        workout={workout}
       />
     )
   })

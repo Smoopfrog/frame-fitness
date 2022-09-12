@@ -15,7 +15,7 @@ module.exports = (db) => {
     await db.query(`INSERT INTO workouts (user_id, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup) VALUES ($1, $2, $3, $4, $5, $6, $7)`,
       [userId, exerciseId, bodyPart, equipment, exerciseName, gifUrl, target]);
 
-    await db.query(`SELECT * FROM workouts WHERE user_id = $1;`, [userId])
+    await db.query(`SELECT * FROM workouts WHERE user_id = $1 ORDER BY exerciseid ASC;`, [userId])
       .then(data => {
         const workout = data.rows;
         res.send({ workout });
@@ -27,10 +27,40 @@ module.exports = (db) => {
       });
   })
 
-  router.get('/exercises', (req, res) => {
+  router.put('/exercises', async (req, res) => {
+    const userId = req.body.userId;
+    const exerciseId = req.body.exerciseId;
+    const totalSets = req.body.totalSets;
+    const totalReps = req.body.totalReps;
+    
+    if (totalSets) {
+      await db.query(`UPDATE workouts SET totalsets = $1 WHERE user_id = $2 AND exerciseid = $3;`, [totalSets, userId, exerciseId])
+    }
+
+    if (totalReps) {
+      await db.query(`UPDATE workouts SET totalreps = $1 WHERE user_id = $2 AND exerciseid = $3;`, [totalReps, userId, exerciseId])
+    }
+
+
+    await db.query(`SELECT * FROM workouts WHERE user_id = $1 ORDER BY exerciseid ASC;`, [userId])
+      .then(data => {
+        const workout = data.rows;
+        console.log(workout);
+
+        res.json({ workout });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+
+  })
+
+  router.get('/exercises', async (req, res) => {
     const userId = req.query.userId
 
-    db.query(`SELECT * FROM workouts WHERE user_id = $1`, [userId])
+    await db.query(`SELECT * FROM workouts WHERE user_id = $1 ORDER BY exerciseid ASC;`, [userId])
       .then(data => {
         const workout = data.rows;
         res.json({ workout });
@@ -51,7 +81,7 @@ module.exports = (db) => {
       await db.query(`DELETE FROM workouts WHERE user_id = $1;`, [userId])
     }
 
-    await db.query(`SELECT * FROM workouts WHERE user_id = $1;`, [userId])
+    await db.query(`SELECT * FROM workouts WHERE user_id = $1 ORDER BY exerciseid ASC;`, [userId])
       .then(data => {
         const workout = data.rows;
         res.json({ workout });
