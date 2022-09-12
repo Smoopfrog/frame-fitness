@@ -28,7 +28,6 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
   const signOut = () => setUser('')
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
-  
   useEffect(() => {
     setBadgeNum(workout.length);
   }, [workout])
