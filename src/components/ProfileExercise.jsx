@@ -42,7 +42,6 @@ const ProfileExercise = ({ workout, setWorkout, exerciseId, bodyPart, equipment,
 
     await axios.put('/exercises', data)
       .then(function (response) {
-        console.log(response.data)
         setWorkout(response.data.workout)
       })
       .catch(function (error) {
@@ -58,7 +57,6 @@ const ProfileExercise = ({ workout, setWorkout, exerciseId, bodyPart, equipment,
 
     await axios.delete('/exercises', { params })
       .then(function (response) {
-        console.log(response.data)
         setWorkout(response.data.workout)
       })
       .catch(function (error) {
