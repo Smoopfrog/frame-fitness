@@ -11,7 +11,7 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
     let progressPercent = progress / workout.length * 100
     setPercentProgress(progressPercent)
   }, [progress, workout])
-  
+
   const deleteAllExercises = async () => {
     const params = {
       userId: user.id,
@@ -19,6 +19,7 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
 
     await axios.delete('/exercises', { params })
       .then(function (response) {
+        setProgress(0)
         setWorkout(response.data.workout)
       })
       .catch(function (error) {
@@ -48,20 +49,23 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
 
   return (
     <Stack className='profile' spacing={3}>
-        {percentProgress === 100 && 
-      <Typography
-        sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#FF9700', textAlign: 'center'}}
-      >
-        Workout Completed</Typography>
-        }
-        {userExercises.length >= 1 ?
-         <LinearProgress variant="determinate" value={percentProgress} sx={{width: {lg: '500px', md: '450px', sm: '400px', xs: '300px'}, height:{lg: '50px', sm: '45px', xs: '40px'}, borderRadius: '10px'}} /> : ''}
-      
-      {userExercises.length >= 1 ?
-        <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button> :
-        <Typography sx={{ textAlign: 'center', color: '#FF9700', fontSize: {xs: '26px', md: '30px', lg: '32px'}}}>
-          Add Exercises to Begin Workout
-        </Typography>
+      {percentProgress === 100 &&
+        <Typography
+          sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#FF9700' }}
+        >
+          Workout Completed
+        </Typography>}
+      {workout.length === 0 ?
+          <Typography
+            sx={{ textAlign: 'center', fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#FF9700' }}
+          >
+            Add Exercises to Begin Workout
+          </Typography>
+        :
+          <LinearProgress variant="determinate" value={percentProgress} sx={{width: {lg: '500px', md: '450px', sm: '400px', xs: '300px'}, height:{lg: '50px', sm: '45px', xs: '40px'}, borderRadius: '10px'}} />
+      }
+      {workout.length !== 0 &&
+        <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
       }
       {userExercises}
     </Stack>

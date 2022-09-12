@@ -25,7 +25,6 @@ const SignupForm = ({ setUser }) => {
 
     axios.post('/users', userData)
       .then(function (response) {
-        setUser(response.data);
         alert('Sign up successful!')
       })
       .catch(function (error) {
