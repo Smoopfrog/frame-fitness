@@ -66,7 +66,8 @@ const ProfileExercise = ({ setProgress, workout, setWorkout, exerciseId, bodyPar
 
     await axios.delete('/exercises', { params })
       .then(function (response) {
-        setWorkout(response.data.workout)
+        setProgress(prev => prev - 1);
+        setWorkout(response.data.workout);
       })
       .catch(function (error) {
         console.log(error);
