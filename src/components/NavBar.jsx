@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Stack, Typography } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
@@ -9,7 +9,6 @@ import FullScreenDialog from './ProfilePopUp';
 import SignupForm from './SignupForm';
 import LoginForm from './LoginForm';
 import Chat from './Chat'
-import Profile from '../pages/Profile';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';

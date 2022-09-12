@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.scss';
 import Navbar from './components/NavBar';
 import Home from './pages/Home';
@@ -15,6 +15,22 @@ function App() {
   const [user, setUser] = useState('')
   const [workout, setWorkout] = useState([]);
 
+  const getWorkout = async () => {
+    const params = { userId: user.id };
+
+    await axios.get('/exercises', { params })
+      .then(function (response) {
+        setWorkout(response.data.workout)
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+  
+  useEffect(() => {
+    getWorkout()
+  }, [user])
+
   return (
     <Box  m='auto' >
       <Navbar 
@@ -24,7 +40,7 @@ function App() {
         setWorkout={setWorkout}
       />
       <Routes>
-        <Route path='/' element={<Home user={user} />} />
+        <Route path='/' element={<Home user={user} workout={workout} setWorkout={setWorkout} />} />
       </Routes>
       <Footer />
     </Box>

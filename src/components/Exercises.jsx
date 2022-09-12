@@ -4,10 +4,10 @@ import { exerciseOptions, fetchData } from "../utils/fetchData";
 import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
 
-const Exercises = ({ exercises, setExercises, category, user }) => {
+const Exercises = ({ exercises, setExercises, category, user, workout, setWorkout }) => {
   const [page, setPage] = useState(1);
   const [exercisesPerPage] = useState(8);
-
+ 
   useEffect(() => {
     const fetchExercisesData = async () => {
       let exercisesData = [];
@@ -32,7 +32,7 @@ const Exercises = ({ exercises, setExercises, category, user }) => {
   };
 
   const exerciseCards = currentExercises.map((exercise, index) => {
-    return (<ExerciseCard key={index} exercise={exercise} user={user} />)
+    return (<ExerciseCard key={index} exercise={exercise} user={user} workout={workout} setWorkout={setWorkout}/>)
   })
 
   return (

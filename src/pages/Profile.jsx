@@ -5,10 +5,9 @@ import ProfileExercise from '../components/ProfileExercise';
 import axios from 'axios';
 import '../styles/App.scss';
 
-
 const Profile = ({ user, setUser, workout, setWorkout }) => {
-  const getWorkout = async () => {
-    const params = { userId: user.id };
+  const getWorkout = async (userId) => {
+    const params = { userId: userId };
 
     await axios.get('/exercises', { params })
       .then(function (response) {
@@ -19,7 +18,6 @@ const Profile = ({ user, setUser, workout, setWorkout }) => {
         console.log(error);
       });
   };
-
 
   const deleteAllExercises = async () => {
     const params = {
@@ -36,9 +34,7 @@ const Profile = ({ user, setUser, workout, setWorkout }) => {
       });
   }
 
-  useEffect(() => {
-    getWorkout()
-  }, [])
+
 
   const userExercises = workout.map(exercise => {
     return (
