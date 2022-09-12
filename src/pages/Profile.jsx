@@ -11,7 +11,7 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
     let progressPercent = progress / workout.length * 100
     setPercentProgress(progressPercent)
   }, [progress, workout])
-  
+
   const deleteAllExercises = async () => {
     const params = {
       userId: user.id,
@@ -19,6 +19,7 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
 
     await axios.delete('/exercises', { params })
       .then(function (response) {
+        setProgress(0)
         setWorkout(response.data.workout)
       })
       .catch(function (error) {
@@ -53,14 +54,24 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
       >
         My Workout
       </Typography>
-        {percentProgress === 100 && 
-      <Typography
-        sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
-      >
-        You're all done! Congratulations!
-      </Typography>}
-      <LinearProgress variant="determinate" value={percentProgress} sx={{width: '500px', height:'50px'}} />
-      <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
+      {percentProgress === 100 &&
+        <Typography
+          sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
+        >
+          You're all done! Congratulations!
+        </Typography>}
+      {workout.length === 0 ?
+          <Typography
+            sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
+          >
+            Add some exercises
+          </Typography>
+        :
+          <LinearProgress variant="determinate" value={percentProgress} sx={{ width: '500px', height: '50px' }} />
+      }
+      {workout.length !== 0 &&
+        <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
+      }
       {userExercises}
     </Stack>
   )
