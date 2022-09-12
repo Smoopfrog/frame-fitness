@@ -64,7 +64,7 @@ const ExerciseCard = ({ exercise, user, workout, setWorkout }) => {
     } else (
       setClick(false)
     )
-  }, [workout] );
+  }, [workout, exercise] );
 
   return (
     <Box className='exercise-card'
