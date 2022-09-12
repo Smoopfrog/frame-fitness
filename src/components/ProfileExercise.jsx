@@ -8,13 +8,22 @@ import { Box, Stack, Button, Typography, ButtonGroup } from '@mui/material';
 import axios from 'axios';
 
 
-const ProfileExercise = ({ workout, setWorkout, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup, userId, totalReps, totalSets }) => {
+const ProfileExercise = ({ setProgress, workout, setWorkout, exerciseId, bodyPart, equipment, exerciseName, gifUrl, targetGroup, userId, totalReps, totalSets }) => {
   const [counter, setCounter] = useState(totalSets);
   const [counterRep, setCounterRep] = useState(totalReps);
   const [selected, setSelected] = useState(false);
   const [showSetSaveButton, setShowSetSaveButton] = useState(false)
   const [showRepSaveButton, setShowRepSaveButton] = useState(false)
 
+  const changeProgress = () => {
+    if(selected) {
+      setProgress(prev => prev - 1);
+    } else {
+      setProgress(prev => prev + 1);
+
+    }
+    setSelected(!selected) 
+  }
 
   useEffect(() => {
     if (totalSets !== counter) {
@@ -140,9 +149,7 @@ const ProfileExercise = ({ workout, setWorkout, exerciseId, bodyPart, equipment,
           className='toggle'
           value="check"
           selected={selected}
-          onChange={() => {
-            setSelected(!selected);
-          }}
+          onChange={changeProgress}
         >
           <CheckIcon fontSize='large' />
         </ToggleButton>

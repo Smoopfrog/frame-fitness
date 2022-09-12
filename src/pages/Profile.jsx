@@ -1,11 +1,21 @@
-import { Typography, Button } from '@mui/material'
+import { Typography, Button, LinearProgress } from '@mui/material'
 import { Stack } from '@mui/system';
-import React from 'react';
+import React, { useState } from 'react';
 import ProfileExercise from '../components/ProfileExercise';
 import axios from 'axios';
 import '../styles/App.scss';
+import { useEffect } from 'react';
 
 const Profile = ({ user, workout, setWorkout }) => {
+  const [progress, setProgress] = useState(0)
+  const [precentProgress, setPrecentProgress] = useState(0)
+
+  useEffect(() => {
+
+    let progressPercent = progress / workout.length * 100
+    setPrecentProgress(progressPercent)
+  }, [progress])
+  
   const deleteAllExercises = async () => {
     const params = {
       userId: user.id,
@@ -35,6 +45,7 @@ const Profile = ({ user, workout, setWorkout }) => {
         userId={exercise.user_id}
         setWorkout={setWorkout}
         workout={workout}
+        setProgress={setProgress}
       />
     )
   })
@@ -46,6 +57,13 @@ const Profile = ({ user, workout, setWorkout }) => {
       >
         My Workout
       </Typography>
+      {precentProgress === 100 && 
+      <Typography
+        sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#00A5B8' }}
+      >
+        You're all done! Congratulations!
+      </Typography>}
+      <LinearProgress variant="determinate" value={precentProgress} sx={{width: '500px', height:'50px'}} />
       <Button className='profile-card-delete-btn' onClick={deleteAllExercises}>Delete All</Button>
       {userExercises}
     </Stack>
