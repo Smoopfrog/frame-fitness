@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography, Badge } from '@mui/material';
 import Dumbbell from '../assets/dumbbell.png';
 import DumbbellOrange from '../assets/dumbbell-orange.png';
 import '../styles/App.scss';
@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import io from "socket.io-client";
+import { useEffect } from 'react';
 
 const socket = io.connect("http://localhost:3001")
 
@@ -22,11 +23,16 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
   const [click, setClick] = useState(false)
   const [visible, setVisible] = useState(false)
   const [navbar, setNavbar] = useState(false);
+  const [badgeNum, setBadgeNum] = useState(0);
 
   const signOut = () => setUser('')
   const handleClick = () => setClick(!click);
   const closeMenu = () => setClick(false);
-
+  
+  useEffect(() => {
+    setBadgeNum(workout.length);
+  }, [workout])
+  
   const joinChat = () => {
     if (user) {
       socket.emit("join", "chat")
@@ -184,10 +190,13 @@ const Navbar = ({ user, setUser, workout, setWorkout }) => {
             <ChatBubbleOutlineIcon fontSize='large' onClick={joinChat} />
           </a>
 
+          <Badge badgeContent={badgeNum} color="primary">
           <a className='nav-elements' >
             <FullScreenDialog title="My Workouts" workout={workout} setWorkout={setWorkout} user={user}>
             </FullScreenDialog>
           </a>
+</Badge>
+
           <a className='nav-elements' onClick={signOut} >Sign Out</a>
           {showChat &&
             <Chat user={user} socket={socket} />
