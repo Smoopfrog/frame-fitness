@@ -13,9 +13,9 @@ const Home = ({ user, workout, setWorkout}) => {
   return (
     <Box>
       <HeroBanner />
-      {/* <SearchBar setExercises={setExercises}/>
+      <SearchBar setExercises={setExercises}/>
       <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
-      <Exercises category={category} exercises={exercises} setExercises={setExercises} user={user} workout={workout} setWorkout={setWorkout} /> */}
+      <Exercises category={category} exercises={exercises} setExercises={setExercises} user={user} workout={workout} setWorkout={setWorkout} />
     </Box>
   )
 }
