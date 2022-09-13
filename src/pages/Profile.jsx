@@ -49,12 +49,17 @@ const Profile = ({ user, workout, setWorkout, progress, setProgress, percentProg
 
   return (
     <Stack className='profile' spacing={3}>
-      {percentProgress === 100 &&
+      {percentProgress === 100 ?
         <Typography
           sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#FF9700' }}
         >
           Workout Completed
-        </Typography>}
+        </Typography> :
+        (workout.length !== 0 &&
+        <Typography sx={{ fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#FF9700' }} >
+          Workout Progress
+        </Typography>)
+        }
       {workout.length === 0 ?
           <Typography
             sx={{ textAlign: 'center', fontSize: { lg: '60px', md: '50px', sm: '40px', xs: '30px' }, color: '#FF9700' }}
