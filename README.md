@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Frame Fitness
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A user-friendly workout app built with ReactJS, Material UI, and Express
 
-## Available Scripts
+## Summary
 
-In the project directory, you can run:
+Signup or login to choose from a library of 1300+ exercises categorized by chest, arms, legs, forearms, lower legs, back, shoulders, neck, and waist! This web application was built by Jeff Stinson and Jeandre Visser as the final project for the [Lighthouse Labs](https://www.lighthouselabs.ca/) full stack development program. 
 
-### `npm start`
+## Project Walkthrough and Features
+1. When presented with the home page, click sign up or login to become a user.
+!["Login"](docs/Frame Fitness.gif)
+!["Login"](docs/Frame Fitness.webm)
+2. Scroll through the catelogue of exercises and add or remove exercises of your choosing. You may search for an exercise using the search bar or select one of the body part categories with the fun animations to narrow your search! There is also a chat feature where a user can chat with an expert to help build a workout (Note: Chat is only a development feature, you will not actually be in contact with an expert, however, you can open another window on `localhost:3000` and chat back and forth to test out the chat!)
+3. Go to `My Workout` in the nav bar. Here you can edit the sets and reps, as well as delete any exercises you no longer want. 
+4. Whenever you are ready, you may begin your workout and toggle the checkmark button whenever you are finished with the exercise. A bar at the top of the page will show your workout progression. Once your workout is completed, you can `DELETE ALL` to build a new workout from scratch.
+5. Sign out and log back in to add new exercises for another workout
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
+1. Install all required dependencies: `npm i`
+2. Setup database with the schema in the `db.sql` file
+3. Create an .env file with database credentials that are imported into the `dp.js` file
+4. Run the server by entering `node server/index` in the command line from the root of the project
+5. Run `npm start`:
+- Runs the app in the development mode.
+- Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The page will reload when you make changes.
+- You may also see any lint errors in the console.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Dependencies
+- ReactJS 
+- Express 
+- Material UI
+- SASS
+- Axios 
+- Socket.io
+- Yup
+- bcrypt
