@@ -75,17 +75,17 @@ const ProfileExercise = ({ setProgress, workout, setWorkout, exerciseId, bodyPar
   }
 
   return (
-    <Stack sx={{ flexDirection: { xs: 'column', sm: 'row' } }}  >
+    <Stack sx={{ flexDirection: { xs: 'column', sm: 'row' } }} >
 
       <Stack className="profile-card" m='20px'
-        sx={{ '&:hover': { boxShadow: '0 0 3px 5px #FF9700' }, objectPosition: 'center center' }}
+        sx={{ '&:hover': { boxShadow: '0 0 3px 5px #FF9700' } }}
       >
         <Typography className="profile-card-name"
-          sx={{ fontSize: { lg: '24px', xs: '20px' } }} >
+          sx={{ fontSize: { lg: '26px', xs: '22px' } }} >
           {exerciseName}
         </Typography>
 
-        <img src={gifUrl} alt='photo' margin="inherit" style={{ width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center' }} />
+        <img src={gifUrl} alt='photo' margin="inherit"  />
 
         <Stack direction="row">
 
@@ -99,7 +99,7 @@ const ProfileExercise = ({ setProgress, workout, setWorkout, exerciseId, bodyPar
 
           <Button className="profile-card-delete-btn"
             onClick={deleteExercise}
-            sx={{ '&:hover': { background: 'white', color: 'red', border: '2px solid red', p: '4px 6px', backgroundColor: 'white' } }}>
+          >
             <DeleteIcon fontSize="large" />
           </Button>
 
