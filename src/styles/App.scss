@@ -478,6 +478,8 @@ html {
 
 .chat-window p {
   margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 .chat-window .chat-header {
   height: 45px;
@@ -521,35 +523,27 @@ html {
   display: flex;
 }
 
-.chat-window .chat-body .message .message-content {
-  width: auto;
-  height: auto;
-  min-height: 40px;
-  max-width: 120px;
-  background-color: #43a047;
-  border-radius: 5px;
-  color: white;
-  display: flex;
-  align-items: center;
-  margin-right: 5px;
-  margin-left: 5px;
-  padding-right: 9px;
-  padding-top: 8px;
-  overflow-wrap: break-word;
-  word-break: break-word;
-}
-
 #you {
   justify-content: flex-start;
 }
 
 #you .message-content {
+  min-width: min-content;
+  height: min-content;
+  min-height: 40px;
+  background-color: #43a047;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  padding-top: 8px;
+  word-break: break-word;
   justify-content: flex-start;
+  text-align: initial;
 }
 
 #you .message-meta {
   justify-content: flex-start;
-  margin-left: 5px;
+  margin-top: 4px;
 }
 
 #other {
@@ -557,18 +551,26 @@ html {
 }
 
 #other .message-content {
-  justify-content: flex-end;
+  min-height: 40px;
+  min-width: min-content;
   background-color: cornflowerblue;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  justify-content: flex-end;
+  text-align: end;
 }
 
 #other .message-meta {
   justify-content: flex-end;
-  margin-right: 5px;
   margin-top: 4px;
 }
 
 .message-meta #author {
-  margin-left: 10px;
   font-weight: bold;
 }
 
