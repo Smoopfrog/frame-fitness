@@ -52,7 +52,7 @@ Signup or login to choose from a library of 1300+ exercises categorized by chest
 - Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 ***Important Note***\
-This web application uses an [ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) from RapidAPI which is required for this application. The API key must also go into the .env file and imported into the db.js file. You may purchase the API to experience the application yourself, or just appreciate the visual walkthrough and explanation in this README.
+This web application uses an [ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) from RapidAPI which is required for this application. The API key must also be in your `.env` file and imported into the `fetchData.js` file found in the `utils` folder. You may purchase the API to experience the application yourself, or just appreciate the visual walkthrough and explanation in this README.
 
 ## Dependencies
 - ReactJS 
