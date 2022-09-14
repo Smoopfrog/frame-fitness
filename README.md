@@ -18,7 +18,7 @@ Signup or login to choose from a library of 1300+ exercises categorized by chest
 1. When presented with the home page, click sign up or login to become a user.
 <table>
   <tr>
-    <td><img src='https://github.com/Smoopfrog/frame-fitness/blob/main/docs/Frame%20Fitness.gif' width=1000 ></td>
+    <td><img src='https://github.com/Smoopfrog/frame-fitness/blob/main/docs/login.gif' width=1000 ></td>
     <td><img src='https://github.com/Smoopfrog/frame-fitness/blob/main/docs/login-mobile.gif' width='375' /></td>
   </tr>
 </table>
