@@ -20,6 +20,7 @@ export default function FullScreenDialog({ title, user, setUser, workout, setWor
 
   const handleClose = () => {
     setOpen(false);
+    setProgress(0);
   };
 
   return (
