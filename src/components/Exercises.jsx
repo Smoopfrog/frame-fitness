@@ -4,8 +4,7 @@ import { exerciseOptions, fetchData } from "../utils/fetchData";
 import { Box } from "@mui/system";
 import ExerciseCard from './ExerciseCard';
 
-const Exercises = ({ exercises, setExercises, category, user, workout, setWorkout }) => {
-  const [page, setPage] = useState(1);
+const Exercises = ({ page, setPage, exercises, setExercises, category, user, workout, setWorkout }) => {
   const [exercisesPerPage] = useState(8);
  
   useEffect(() => {

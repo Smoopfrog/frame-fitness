@@ -35,7 +35,7 @@ const LeftArrow = () => {
     );
   };
 
-const CategoriesBar = ({ category, setCategory, setExercises }) => {
+const CategoriesBar = ({ page, setPage, category, setCategory, setExercises }) => {
   const categories = ['all', 'cardio', 'chest', 'back', 'upper arms', 'shoulders', 'upper legs', 'lower arms','waist', 'lower legs', 'neck']
   const [selected, setSelected] = useState('all')
 
@@ -66,7 +66,11 @@ const CategoriesBar = ({ category, setCategory, setExercises }) => {
             : ''
         }}
 
-        onClick={() => setCategory(bodyPart)}
+        onClick={() => {
+            setCategory(bodyPart);
+            setPage(1);
+          }
+        }
       >
         <Typography fontSize="24px" fontWeight="bold" color="#FFF" textTransform="uppercase" align="center">{bodyPart}</Typography>
       </ToggleButton>
