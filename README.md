@@ -1,19 +1,32 @@
 # Frame Fitness
 
-A one page user-friendly workout app built with ReactJS, Material UI, and Express
+A one page user-friendly workout app built with ReactJS, Material UI, and Express. Can be used on mobile, tablet, and desktop screens!
 
 ## Summary
 
 Signup or login to choose from a library of 1300+ exercises categorized by chest, arms, legs, forearms, lower legs, back, shoulders, neck, and waist! This web application was built by Jeff Stinson and Jeandre Visser as the final project for the [Lighthouse Labs](https://www.lighthouselabs.ca/) full stack development program. 
 
+## Quick Glimpse
+
+### Home page
+!["home-page"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/homepage.png)
+
+### Exercises Catalogue
+!["exercises"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/exercises.png)
+
 ## Project Walkthrough and Features
 1. When presented with the home page, click sign up or login to become a user.
-!["Login"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/Frame%20Fitness.gif)
-!["Login"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/Frame%20Fitness.webm)
+!["Login"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/Frame%20Fitness.gif) !["Login-mobile"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/login-mobile.gif)/
+
 2. Scroll through the catelogue of exercises and add or remove exercises of your choosing. You may search for an exercise using the search bar or select one of the body part categories with the fun animations to narrow your search! There is also a chat feature where a user can chat with an expert to help build a workout (Note: Chat is only a development feature, you will not actually be in contact with an expert, however, you can open another window on `localhost:3000` and chat back and forth to test out the chat!)
+!["Exercises"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/exercises.gif) !["Exercises-mobile"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/exercises-mobile.gif) 
+
 3. Go to `My Workout` in the nav bar. Here you can edit the sets and reps, as well as delete any exercises you no longer want. 
-4. Whenever you are ready, you may begin your workout and toggle the checkmark button whenever you are finished with the exercise. A bar at the top of the page will show your workout progression. Once your workout is completed, you can `DELETE ALL` to build a new workout from scratch.
+4. Whenever you are ready, you may begin your workout and toggle the checkmark button whenever you are finished with the exercise. A bar at the top of the page will show your workout progress. Once your workout is completed, you can `DELETE ALL` to build a new workout from scratch.
+!["MyWorkout"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/myworkout.gif) !["MyWorkout-mobile"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/myworkout-mobile.gif)/
+
 5. Sign out and log back in to add new exercises for another workout
+
 
 ## Getting Started
 1. Install all required dependencies: `npm i`
