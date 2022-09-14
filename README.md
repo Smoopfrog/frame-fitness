@@ -9,10 +9,10 @@ Signup or login to choose from a library of 1300+ exercises categorized by chest
 ## Quick Glimpse
 
 ### Home page
-!["home-page"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/homepage.png)
+!["home-page"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/homepage-still.png)
 
 ### Exercises Catalogue
-!["exercises"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/exercises.png)
+!["exercises"](https://github.com/Smoopfrog/frame-fitness/blob/main/docs/exercises-still.png)
 
 ## Project Walkthrough and Features
 1. When presented with the home page, click sign up or login to become a user.
