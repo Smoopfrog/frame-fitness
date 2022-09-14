@@ -45,7 +45,7 @@ Signup or login to choose from a library of 1300+ exercises categorized by chest
 ## Getting Started
 1. Install all required dependencies: `npm i`
 2. Setup database with the schema in the `db.sql` file
-3. Create an .env file with database credentials that are imported into the `db.js` file
+3. Create an `.env` file with database credentials that are imported into the `db.js` file
 4. Run the server by entering `node server/index` in the command line from the root of the project
 5. Run `npm start`:
 - Runs the app
