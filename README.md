@@ -19,7 +19,7 @@ Signup or login to choose from a library of 1300+ exercises categorized by chest
 <table>
   <tr>
     <td><img src='https://github.com/Smoopfrog/frame-fitness/blob/main/docs/login.gif' width=759 ></td>
-    <td><img src='https://github.com/Smoopfrog/frame-fitness/blob/main/docs/login-mobile.gif' width=253 /></td>
+    <td><img src='https://github.com/Smoopfrog/frame-fitness/blob/main/docs/login-mobile.gif' width=225 /></td>
   </tr>
 </table>
 
