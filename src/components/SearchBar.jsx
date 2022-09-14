@@ -4,7 +4,7 @@ import { fetchData, exerciseOptions } from "../utils/fetchData";
 import '../styles/App.scss';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 
-const SearchBar = ({ setExercises }) => {
+const SearchBar = ({ setExercises, setPage, }) => {
   const [search, setSearch] = useState('');
 
   const searchFunction = async () => {
@@ -17,9 +17,10 @@ const SearchBar = ({ setExercises }) => {
           || item.equipment.toLowerCase().includes(search)
           || item.bodyPart.toLowerCase().includes(search),
       );
-
+      setPage(1)
       setSearch('');
       setExercises(searchedExercises);
+      
     }
   };
 

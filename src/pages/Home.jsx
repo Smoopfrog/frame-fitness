@@ -9,13 +9,14 @@ import SearchBar from '../components/SearchBar'
 const Home = ({ user, workout, setWorkout}) => {
   const [category, setCategory] = useState('all')
   const [exercises, setExercises] = useState([])
+  const [page, setPage] = useState(1);
 
   return (
     <Box>
       <HeroBanner />
-      <SearchBar setExercises={setExercises}/>
-      <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises}/>
-      <Exercises category={category} exercises={exercises} setExercises={setExercises} user={user} workout={workout} setWorkout={setWorkout} />
+      <SearchBar setExercises={setExercises} page={page} setPage={setPage}/>
+      <CategoriesBar category={category} setCategory={setCategory} setExercises={setExercises} page={page} setPage={setPage} />
+      <Exercises page={page} setPage={setPage} category={category} exercises={exercises} setExercises={setExercises} user={user} workout={workout} setWorkout={setWorkout} />
     </Box>
   )
 }
