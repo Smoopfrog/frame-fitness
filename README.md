@@ -45,11 +45,14 @@ Signup or login to choose from a library of 1300+ exercises categorized by chest
 ## Getting Started
 1. Install all required dependencies: `npm i`
 2. Setup database with the schema in the `db.sql` file
-3. Create an .env file with database credentials that are imported into the `db.js` file
+3. Create an `.env` file with database credentials that are imported into the `db.js` file
 4. Run the server by entering `node server/index` in the command line from the root of the project
 5. Run `npm start`:
 - Runs the app
 - Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+***Important Note***\
+This web application uses an [ExerciseDB](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb) from RapidAPI which is required for this application. The API key must also be in your `.env` file and imported into the `fetchData.js` file found in the `utils` folder. You may purchase the API to experience the application yourself, or just appreciate the visual walkthrough and explanation in this README.
 
 ## Dependencies
 - ReactJS 
